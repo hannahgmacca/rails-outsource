@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Task Completes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_completes.each do |task_complete| %>
+      <tr>
+        <td><%= link_to 'Show', task_complete %></td>
+        <td><%= link_to 'Edit', edit_task_complete_path(task_complete) %></td>
+        <td><%= link_to 'Destroy', task_complete, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task Complete', new_task_complete_path %>
