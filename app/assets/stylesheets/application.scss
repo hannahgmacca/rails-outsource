@@ -13,3 +13,20 @@
  */
 
 @import "bootstrap";
+
+.index-slide {
+    background-image: url("index-bg.jpg");
+}
+
+.alert {
+    display: none;
+}
+
+.notice {
+    display: none;
+}
+
+.navbar-brand
+{
+  font-size: 40px;
+}
