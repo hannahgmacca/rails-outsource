@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
+  before_action :setup_form, only: [:new, :edit]
   before_action :set_task, only: %i[ show edit update destroy ]
 
   # GET /tasks or /tasks.json
@@ -23,6 +25,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
 
+    @task.user_id = current_user.id
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: "Task was successfully created." }
@@ -62,8 +65,13 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
     end
 
+    def setup_form
+      @categories = Category.all
+    end
+
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :description, :price, :task, :user)
+      params.require(:task).permit(:title, :description, :price, :user_id, :category_id)
     end
+
 end

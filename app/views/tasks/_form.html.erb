@@ -1,3 +1,9 @@
+<div class="p-4">
+<% if @task.errors.any? %>
+  <% @task.errors.full_messages.each do |message|%>\
+  <h3><%= message %> </h3>
+  <%end%>
+<%end%>
 
 <%= simple_form_for(@task) do |f| %>
   <%= f.error_notification %>
@@ -7,11 +13,11 @@
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :price %>
-    <%= f.input :task %>
-    <%= f.input :user %>
+    <%= f.collection_select :category_id, Category.order(:title), :id, :title, required: true %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary my-3" %>
   </div>
 <% end %>
+</div>

@@ -1,35 +1,34 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Tasks</h1>
+<h1>Tasks near you</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Task</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= task.description %></td>
-        <td><%= task.price %></td>
-        <td><%= task.task %></td>
-        <td><%= task.user %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="py-4">
+      <div class="card w-50">
+   
+      <div class="card-header" >
+       <td><%= task.category.title %></td>
+       </div>
+        <div class="card-body">
+        <div class="h2">
+        <%= task.title %>
+        </div>
+        <div class="card-text">
+        <%= task.description %>
+        <%= task.price %>
+        </div>
+        <br>
+        <%= task.user.first_name %> <%= task.user.surname %>
+        <br>
+        <br>
+        <%= link_to 'Show', task, class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary" %>
+        <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%>
+        </div>
+        </div>
+        </div>
     <% end %>
-  </tbody>
-</table>
 
 <br>
-
-<%= link_to 'New Task', new_task_path %>
+</div>

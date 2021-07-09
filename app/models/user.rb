@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :city
+  belongs_to :city
   has_many :tasks, through: :task_completes # tasks the user completed
   has_many :comments
   has_many :favourites

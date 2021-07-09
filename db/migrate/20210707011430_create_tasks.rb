@@ -5,12 +5,8 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.string :description
       t.float :price
       t.datetime :time
-      t.integer :category_id # the category it belongs to
-      t.integer :user_id # the user who made it
 
       t.timestamps
     end
-    add_index :tasks, :user_id
-    add_index :tasks, :category_id
   end
 end
