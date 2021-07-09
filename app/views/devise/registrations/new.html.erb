@@ -17,15 +17,10 @@
                     %>
         </div>
         <div class="dropdown">
-        <%= f.collection_select :city_id,
-            City.order(:name),
-            :id,
-            :name,
-            required: true,
-            include_blank: true,
-            class: "btn btn-secondary dropdown-toggle"
-             %> 
-          </div>
+        <%= f.input :city_id do %>
+          <%= f.select :city_id, City.all.map { |c| [c.name, c.id, input_html: { class: "btn btn-secondary dropdown-toggle"}]}%>
+        <% end %>
+        </div>
         <div class="form-group">
         <%= f.input :email,
                     required: true,
