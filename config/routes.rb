@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :applications
+  resources :skills
   resources :favourites
   resources :task_completes
   resources :categories

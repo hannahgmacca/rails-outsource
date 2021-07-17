@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :tasks, through: :task_completes # tasks the user completed
   has_many :comments
   has_many :favourites
+  has_one_attached :picture 
 end

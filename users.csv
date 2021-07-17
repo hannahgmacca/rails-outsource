@@ -1,0 +1,2 @@
+id,email,encrypted_password,reset_password_token,reset_password_sent_at,remember_created_at,created_at,updated_at,first_name,surname,city_id
+1,h@gmail.com,$2a$12$CcmEdH2f8aTYosTDh13gTuLDBOwnL3UYD4X5Cb7b50V4ndeZ/gday,,,,2021-07-12 01:53:23.265763,2021-07-12 01:53:23.265763,Hannah,Mcdonald,1
