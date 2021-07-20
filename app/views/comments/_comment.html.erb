@@ -1,0 +1,14 @@
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <%= comment.message %>
+
+        </p>
+      </div>
+    </div>
+     <%= link_to 'Delete', [comment.task, comment],
+        method: :delete, class: "bn btn-danger", data: { confirm: 'Are you sure?' } %>
+  </article>
+</div>

@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_08_033523) do
+ActiveRecord::Schema.define(version: 2021_07_16_014334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.string "message"
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_applications_on_task_id"
+    t.index ["user_id"], name: "index_applications_on_user_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -26,6 +36,16 @@ ActiveRecord::Schema.define(version: 2021_07_08_033523) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "message"
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_comments_on_task_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "completed_tasks", force: :cascade do |t|
@@ -46,6 +66,12 @@ ActiveRecord::Schema.define(version: 2021_07_08_033523) do
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -57,6 +83,15 @@ ActiveRecord::Schema.define(version: 2021_07_08_033523) do
     t.bigint "user_id", null: false
     t.index ["category_id"], name: "index_tasks_on_category_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "user_skills", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skill_id"], name: "index_user_skills_on_skill_id"
+    t.index ["user_id"], name: "index_user_skills_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,11 +110,17 @@ ActiveRecord::Schema.define(version: 2021_07_08_033523) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "applications", "tasks"
+  add_foreign_key "applications", "users"
+  add_foreign_key "comments", "tasks"
+  add_foreign_key "comments", "users"
   add_foreign_key "completed_tasks", "tasks"
   add_foreign_key "completed_tasks", "users"
   add_foreign_key "favourites", "tasks"
   add_foreign_key "favourites", "users"
   add_foreign_key "tasks", "categories"
   add_foreign_key "tasks", "users"
+  add_foreign_key "user_skills", "skills"
+  add_foreign_key "user_skills", "users"
   add_foreign_key "users", "cities"
 end
