@@ -56,6 +56,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    acts_as_favoritor (5.0.1)
+      activerecord (>= 5.0)
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
     bcrypt (3.1.16)
@@ -79,6 +81,8 @@ GEM
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.3)
+    font-awesome-sass (5.6.1)
+      sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.10)
@@ -203,10 +207,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_favoritor (~> 5.0, >= 5.0.1)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.5.2)
   byebug
   devise
+  font-awesome-sass (~> 5.6.1)
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.2)

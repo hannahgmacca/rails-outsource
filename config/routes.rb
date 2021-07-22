@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   resources :tasks do
-  	resources :comments
+    resources :comments
+    member do
+      post 'toggle_favorite', to: "tasks#toggle_favorite"
+    end
   end
+
   resources :comments
   resources :applications
   resources :skills
-  resources :favourites
   resources :task_completes
   resources :categories
   resources :cities

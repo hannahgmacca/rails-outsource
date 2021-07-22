@@ -33,6 +33,8 @@ gem 'bootstrap', '~> 4.5.2'
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
+gem 'acts_as_favoritor', '~> 5.0', '>= 5.0.1'
+gem 'font-awesome-sass', '~> 5.6.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

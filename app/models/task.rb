@@ -1,9 +1,10 @@
 class Task < ApplicationRecord
-    
+    # From rubygem
+    acts_as_favoritable
+
     belongs_to :user
     belongs_to :category
     has_many :comments, dependent: :destroy 
-    has_many :favourites
 
     validates :title, presence: true
     validates :user, presence: true

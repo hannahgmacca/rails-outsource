@@ -25,17 +25,15 @@
   <%= @task.user %>
 </p>
 
-<section class="section comments">
-    <div class="container">
-        <h2 class="subtitle is-5"><strong><%= @task.comments.count %></strong> Comments</h2>
-        <%= render @task.comments %>
-        <div class="comment-form">
-            <hr />
-            <h3 class="subtitle is-3">Leave a reply</h3>
-             <%= render 'comments/form' %>
-        </div>
-    </div>
-</section>
+  <div class="container">
+      <h2 class="subtitle is-5"><strong><%= @task.comments.count %></strong> Comments</h2>
+      <%= render @task.comments %>
+      <div class="comment-form">
+          <hr />
+          <h3 class="subtitle is-3">Leave a reply</h3>
+            <%= render 'comments/form' %>
+      </div>
+  </div>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

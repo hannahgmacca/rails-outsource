@@ -1,0 +1,6 @@
+var taskId = '<%= @task.id%>'
+function toggleLikeButton(taskId, innerHTML) {
+  let likeButton = document.querySelector(`.like-icon[data-id='${cocktailId}']`)
+  likeButton.classList.toggle('red');
+}
+toggleLikeButton(cocktailId);
