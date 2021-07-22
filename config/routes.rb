@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :tasks do
-    resources :comments
     member do
-      post 'toggle_favorite', to: "tasks#toggle_favorite"
+    post 'toggle_favorite', to: "tasks#toggle_favorite"
     end
+    resources :comments
   end
 
   resources :comments

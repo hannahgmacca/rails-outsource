@@ -31,7 +31,13 @@
 
 
 					<div class="favourite-count">
-          				 <span class="tag is-rounded"><%= task.favoritable_score.values[0] %> favourites</span>
+          				 <span class="tag is-rounded">
+						   <% if task.favoritable_score.values.empty? %>
+						    0 favourites
+						    <% else %>
+							<%= task.favoritable_score.values[0] %>
+						   favourites</span>
+						   <%end%>
          			 </div>
 
 
