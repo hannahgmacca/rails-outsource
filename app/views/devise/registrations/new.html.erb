@@ -42,7 +42,7 @@
                     input_html: { autocomplete: "new-password" } %>
         </div>
          <div class="form-group">
-         <%= f.file_field :picture %>
+         <%= f.file_field :picture, accepts: "image/png,image/jpg,image/jpeg" %>
         </div>
 
       <div class="clear-fix">
