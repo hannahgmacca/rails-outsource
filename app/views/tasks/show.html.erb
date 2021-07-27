@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="card container p-5 mt-5">
   <div class="row">
-    <div class="task container">
+    <div class="task col-lg-6 col-md-6">
       <p>
         <h1><%= @task.title %></h1>
       </p>
@@ -31,21 +31,22 @@
         <i class="fa fa-clock"></i> Posted 
           <%= time_ago_in_words(@task.created_at) %> ago
         </p>
+        </div>
 
-       <div class='col-12 p-0 mb-4'>
-        <%= image_tag @task.user.picture, class: "card-img top thumbnail" if @task.user.picture.attached? %>
-      </div>
-      
-      </div>
+       <div class='col-lg-6 col-md-6'>
+        <%= image_tag @task.user.picture, width: "200px", class:"" %>
+      </div>  
+
+ </div>
 
     <div class="container">
-        <h2 class="subtitle is-5"><strong><%= @task.comments.count %></strong> Comments</h2>
-        <%= render @task.comments %>
-        <div class="comment-form">
-            <hr />
-            <h3 class="subtitle is-3">Leave a reply</h3>
-            <%= render 'comments/form' %>
-        </div>
+      <h2 class="subtitle is-5"><strong><%= @task.comments.count %></strong> Comments</h2>
+      <%= render @task.comments %>
+      <div class="comment-form">
+        <hr />
+        <h3 class="subtitle is-3">Leave a reply</h3>
+        <%= render 'comments/form' %>
+      </div>
     </div>
 
   
