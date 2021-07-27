@@ -1,4 +1,3 @@
-<div class="p-4">
 <% if @task.errors.any? %>
   <% @task.errors.full_messages.each do |message|%>\
   <h3><%= message %> </h3>
@@ -20,4 +19,4 @@
     <%= f.button :submit, class: "btn btn-primary my-3" %>
   </div>
 <% end %>
-</div>
+
