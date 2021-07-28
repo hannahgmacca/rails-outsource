@@ -19,8 +19,7 @@
 					<div class="card-text">
 						<%= task.description %>
 					</div>
-
-					
+			
 					<div class="card-text">
 					<p>
 						$<%= task.price %>
@@ -31,11 +30,11 @@
 					<br><br>
 
 					<div class="comment-count">
-          	<span class="tag is-rounded"><%= task.comments.count %> comments</span>
-         	</div>
+          				<span class="tag is-rounded"><%= task.comments.count %> comments</span>
+         			</div>
 
 					<div class="favourite-count">
-          	<span class="tag is-rounded">
+          			<span class="tag is-rounded">
 					<% if task.favoritable_score.values.empty? %>
 						0 favourites
 					<% else %>
@@ -48,6 +47,11 @@
 					<%= render 'tasks/like_button', task: task %>
 				<% end %>
 
+					<% if current_user.has_applied?(task.id) %>
+						<div class="alert" role="alert">Applied</div>
+				<% else %>
+						<%= link_to 'Apply', new_application_path(task_id: task.id, user_id: current_user), class: "btn btn-primary" %>
+				<% end %>
 				<%= link_to 'Show', task, class: "btn btn-primary" %>
 				<%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary" %>
 				<%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%>

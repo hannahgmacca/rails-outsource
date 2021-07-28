@@ -11,4 +11,9 @@ class User < ApplicationRecord
   has_many :tasks, through: :task_completes # tasks the user completed
   has_many :comments
   has_one_attached :picture 
+  has_many :applications, dependent: :destroy 
+
+  def has_applied?(task_id)
+      applications.find_by_id(task_id)
+  end
 end

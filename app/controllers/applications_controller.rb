@@ -21,18 +21,23 @@ class ApplicationsController < ApplicationController
 
   # POST /applications or /applications.json
   def create
-    @application = Application.new(application_params)
-
-    respond_to do |format|
-      if @application.save
-        format.html { redirect_to @application, notice: "Application was successfully created." }
-        format.json { render :show, status: :created, location: @application }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @application.errors, status: :unprocessable_entity }
+    @application = Application.find_by_user_id_and_task_id(params[:application][:user_id], params[:application][:task_id])
+    if !@application.nil?
+      redirect_to root_path, alert: "You already applied for this job."
+    else
+      @application = Application.new(application_params)
+      respond_to do |format|
+        if @application.save
+          format.html { redirect_to @application, notice: "Application was successfully created." }
+          format.json { render :show, status: :created, location: @application }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @application.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
+
 
   # PATCH/PUT /applications/1 or /applications/1.json
   def update
