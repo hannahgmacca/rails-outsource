@@ -13,19 +13,13 @@
     <%= f.input :description %>
     <%= f.input :price %>
     <%= f.collection_select :category_id, Category.order(:title), :id, :title, required: true %>
+    <br><br>
     <%= f.input :remote_work, as: :boolean %>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                        <%= f.input :time, data: { target: "#datetimepicker"}, :input_html => { :class => 'form-control' }  %>
-                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        </div>
-                    </div>
-                </div>
+    <div class="form-group">
+        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+            <%= f.input :time, data: { target: "#datetimepicker1"} %>
+            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
             </div>
         </div>
     </div>
@@ -35,3 +29,4 @@
     <%= f.button :submit, class: "btn btn-primary my-3" %>
   </div>
 <% end %>
+
