@@ -1,11 +1,38 @@
 
-<div class="container-fluid index-slide d-flex align-items-center" style="height: 500px">
+<div class="container-fluid index-slide d-flex align-items-center" style="height: 400px">
 
     <div class="index-title p-4 text-light w-10">
         <h1>Find a job.</h1>
         <h1>Or get a job done for you.</h1> 
 
-        <%= button_to "Source",new_user_registration_path, method: :get, form_class: "btn p-0" %>
-        <%= button_to "Be Sourced", new_user_registration_path, method: :get, form_class: "btn p-1"%>
+        <%= link_to "Source",new_user_registration_path, method: :get, class: "btn btn-info btn-lg" %>
+        <%= link_to "Be Sourced", new_user_registration_path, method: :get, class: "btn btn-info mx-3 btn-lg"%>
     </div>
+
+    <div class='align-self-end d-none d-md-block'>
+        <%= image_tag "woman_on_phone.png", class: "d-none d-md-block", width:"600px", alt: "cartoon woman" %>
+    </div>
+
+	</div>
+
+	<div class="bg-light container-fluid" style="height: 300px">
+
+    <h1 class="text-center p-4">Browse categories:</h1>
+    <div class="row">
+        <div class="mx-auto">
+				 <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check"></i>
+				</button>
+				<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-list"></i>
+				</button>
+				<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-link"></i>
+				</button>
+				<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check"></i>
+				</button>
+				<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-times"></i>
+				</button>
+				<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-heart"></i>
+				</button>
+        </div>
+    </div>
+    
 </div>

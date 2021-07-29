@@ -21,15 +21,23 @@ body {
   background-color: #648BC6;
 }
 
-.index-slide {
-    background-image: url("index-bg.jpg");
-}
-
 .navbar-brand
 {
   font-size: 30px;
   font-weight: bolder;
 }
+
+  .alert {
+    margin-bottom: 0 !important;
+    padding: 0;
+    height: 20px;
+    background-color: lightcoral;
+  }
+
+  .notice {
+    margin-bottom: 0 !important;
+    height: 0px;
+  }
 
 a {
   color: black; 
@@ -40,3 +48,43 @@ a {
 .red {
   color: #ff0000;
 }
+
+
+  /* Extra small devices (phones, less than 768px) */
+  .h1 {font-size: 12px;}
+  .navbar {height: 130px}
+  .navbar-brand img {height: 100px; width: 100px;}
+  #prov {font-size:60px}
+
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    h1 { font-size: 50px; }
+
+  }
+
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    h1 { font-size: 60px; }
+    #prov {font-size:50px}
+  }
+
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    h1 { font-size: 60px; }
+    .navbar {height: 90px}
+    .navbar-brand img {height: 75px; width: 75px;}
+  }
+
+
+
+
+.btn-circle.btn-xl {
+  width: 100px;
+  height: 100px;
+  padding: 10px 16px;
+  margin: 0 20px;
+  border-radius: 50px;
+  font-size: 24px;
+  line-height: 1.33;
+}
+
