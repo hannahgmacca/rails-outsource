@@ -23,7 +23,7 @@ class ApplicationsController < ApplicationController
   def create
     @application = Application.find_by_user_id_and_task_id(params[:application][:user_id], params[:application][:task_id])
     if !@application.nil?
-      redirect_to root_path, alert: "You already applied for this job."
+      redirect_to @application, alert: "You've already applied for this job."
     else
       @application = Application.new(application_params)
       respond_to do |format|
@@ -37,6 +37,7 @@ class ApplicationsController < ApplicationController
       end
     end
   end
+
 
 
   # PATCH/PUT /applications/1 or /applications/1.json

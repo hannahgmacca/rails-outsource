@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :applications, dependent: :destroy 
 
   def has_applied?(task_id)
-      applications.find_by_id(task_id)
+      if !applications.find_by_task_id(task_id).nil?
+        true
+      end
   end
 end

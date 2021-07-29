@@ -47,8 +47,8 @@
 					<%= render 'tasks/like_button', task: task %>
 				<% end %>
 
-					<% if current_user.has_applied?(task.id) %>
-						<div class="alert" role="alert">Applied</div>
+				<% if current_user.has_applied?(task.id) %>
+						<%= link_to 'Applied', applications_path(task_id: task.id, user_id: current_user), class: "btn btn-primary" %>
 				<% else %>
 						<%= link_to 'Apply', new_application_path(task_id: task.id, user_id: current_user), class: "btn btn-primary" %>
 				<% end %>
