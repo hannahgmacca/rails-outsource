@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+    # Pundit Gem for resource authoritsation
+    include Pundit
+    # User authentication
     protect_from_forgery with: :exception
     before_action :authenticate_user!, :except => [:index]
 

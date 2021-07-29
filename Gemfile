@@ -37,7 +37,7 @@ gem 'acts_as_favoritor', '~> 5.0', '>= 5.0.1'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem "aws-sdk-s3", require: false
 gem "datetime_picker_rails", github: "graysonwright/datetime_picker_rails"
-
+gem "pundit"
 
 
 group :development, :test do

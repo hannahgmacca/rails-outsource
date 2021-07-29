@@ -10,8 +10,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
-          format.html { redirect_to @task, notice: 'Post was 
-          successfully commented.' }
+          format.html { redirect_to @task }
           format.json { render :show, status: :created, 
       location: @task }
       else

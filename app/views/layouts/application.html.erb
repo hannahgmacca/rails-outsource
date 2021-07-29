@@ -12,11 +12,11 @@
   <body>
     <%= render "partials/navbar" %>
      <%# Devise install requirement %>
-    <p class="notice"><%= notice %></p>
-   
 
-    <% flash.each do |key, value| %>
-       <div class="flash alert alert-danger <%= key %>"><%= value %></div>
+    <% flash.each do |type, msg| %>
+    <div class="alert alert-info">
+      <%= msg %>
+    </div>
     <% end %>
     <%= yield %>
   </body>
