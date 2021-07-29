@@ -27,17 +27,16 @@ body {
   font-weight: bolder;
 }
 
-  .alert {
-    margin-bottom: 0 !important;
-    padding: 0;
-    height: 20px;
-    background-color: lightcoral;
-  }
 
-  .notice {
-    margin-bottom: 0 !important;
-    height: 0px;
-  }
+   .alert {
+     margin-bottom: 0 !important;
+  
+    // height: 20px;
+   }
+    .notice {
+      margin-bottom: 0 !important;
+
+    }
 
 a {
   color: black; 
