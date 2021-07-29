@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   resources :comments
   resources :applications
-  resources :skills
   resources :task_completes
   resources :categories
   resources :cities
