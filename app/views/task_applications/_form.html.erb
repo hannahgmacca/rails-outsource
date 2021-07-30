@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@application) do |f| %>
+<%= simple_form_for(@task_application) do |f| %>
   <%= f.hidden_field :user_id, :value => params[:user_id] %>
   <%= f.hidden_field :task_id, :value => params[:task_id] %>
   <%= f.error_notification %>

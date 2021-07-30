@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments
-  resources :applications
+  resources :task_applications
   resources :task_completes
   resources :categories
   resources :cities

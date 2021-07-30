@@ -1,0 +1,29 @@
+<h1>Applications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Message</th>
+      <th>User</th>
+      <th>Task</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_applications.each do |task_application| %>
+      <tr>
+        <td><%= task_application.message %></td>
+        <td><%= task_application.user_id %></td>
+        <td><%= task_application.task_id %></td>
+        <td><%= link_to 'Show', task_application %></td>
+        <td><%= link_to 'Edit', edit_task_application_path(task_application) %></td>
+        <td><%= link_to 'Destroy', task_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Application', new_task_application_path %>

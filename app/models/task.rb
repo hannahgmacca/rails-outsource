@@ -5,6 +5,8 @@ class Task < ApplicationRecord
     belongs_to :user
     belongs_to :category
     has_many :comments, dependent: :destroy 
+    has_many :task_applications, dependent: :destroy 
+
 
     validates :title, presence: true
     validates :user, presence: true

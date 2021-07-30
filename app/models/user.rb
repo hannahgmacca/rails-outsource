@@ -11,10 +11,10 @@ class User < ApplicationRecord
   has_many :tasks, through: :task_completes # tasks the user completed
   has_many :comments
   has_one_attached :picture 
-  has_many :applications, dependent: :destroy 
+  has_many :task_applications, dependent: :destroy 
 
   def has_applied?(task_id)
-      if !applications.find_by_task_id(task_id).nil?
+      if !task_applications.find_by_task_id(task_id).nil?
         true
       end
   end
