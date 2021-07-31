@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_31_072533) do
+ActiveRecord::Schema.define(version: 2021_07_31_210551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,10 +62,6 @@ ActiveRecord::Schema.define(version: 2021_07_31_072533) do
   create_table "completed_tasks", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "task_id", null: false
-    t.bigint "user_id", null: false
-    t.index ["task_id"], name: "index_completed_tasks_on_task_id"
-    t.index ["user_id"], name: "index_completed_tasks_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -137,6 +133,7 @@ ActiveRecord::Schema.define(version: 2021_07_31_072533) do
     t.text "favoritor_score"
     t.text "favoritor_total"
     t.boolean "admin", default: false
+    t.integer "phone_number"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -145,8 +142,6 @@ ActiveRecord::Schema.define(version: 2021_07_31_072533) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
-  add_foreign_key "completed_tasks", "tasks"
-  add_foreign_key "completed_tasks", "users"
   add_foreign_key "favourites", "tasks"
   add_foreign_key "favourites", "users"
   add_foreign_key "task_applications", "tasks"

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :comments
   resources :task_applications
-  resources :task_completes
+  resources :completed_task
   resources :categories
   resources :cities
   get 'home/index'
