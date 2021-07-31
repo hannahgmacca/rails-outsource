@@ -1,2 +1,33 @@
-<h1>Please review the following tasks</h1></h1>
 
+<div class="page container">
+
+
+	<p id="notice"><%= notice %></p>
+<h1>Please review the following tasks</h1></h1>
+	<% @task_applications.each do |task_application| %>
+
+		<div class="">
+			<div class="card">
+
+				<div class="card-header" >
+					<td>Needs review</td>
+				</div>
+
+                <div class="card-body">
+					<div class="h2">
+					<%= task_application.message %>
+				</div>
+
+                <div class="card-body">
+					<%= task_application.user.first_name %> <%= task_application.user.surname %>
+				</div>
+
+                <%= link_to 'Approve', new_task_complete_path(task_application), class: "btn btn-primary" %>
+                <%= link_to 'Decline', task_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+			
+				<br><br>
+			</div>
+		</div>
+	<% end %>
+	<br>
+</div>

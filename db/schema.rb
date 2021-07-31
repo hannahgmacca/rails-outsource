@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_31_031915) do
+ActiveRecord::Schema.define(version: 2021_07_31_072533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,12 +94,6 @@ ActiveRecord::Schema.define(version: 2021_07_31_031915) do
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
-  create_table "skills", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "task_applications", force: :cascade do |t|
     t.string "message"
     t.bigint "user_id", null: false
@@ -123,20 +117,10 @@ ActiveRecord::Schema.define(version: 2021_07_31_031915) do
     t.text "favoritable_score"
     t.text "favoritable_total"
     t.boolean "remote_work"
-    t.boolean "completed"
     t.date "task_date"
     t.boolean "sourced"
     t.index ["category_id"], name: "index_tasks_on_category_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
-  end
-
-  create_table "user_skills", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "skill_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["skill_id"], name: "index_user_skills_on_skill_id"
-    t.index ["user_id"], name: "index_user_skills_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -152,6 +136,7 @@ ActiveRecord::Schema.define(version: 2021_07_31_031915) do
     t.bigint "city_id", null: false
     t.text "favoritor_score"
     t.text "favoritor_total"
+    t.boolean "admin", default: false
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -168,7 +153,5 @@ ActiveRecord::Schema.define(version: 2021_07_31_031915) do
   add_foreign_key "task_applications", "users"
   add_foreign_key "tasks", "categories"
   add_foreign_key "tasks", "users"
-  add_foreign_key "user_skills", "skills"
-  add_foreign_key "user_skills", "users"
   add_foreign_key "users", "cities"
 end

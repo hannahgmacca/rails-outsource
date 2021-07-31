@@ -3,5 +3,10 @@ class HomeController < ApplicationController
   end
 
   def tasks_to_be_approved
+      @task_applications = TaskApplication.joins(:task).where(tasks: {user_id: current_user, sourced: false})
+  end
+
+  def archived_tasks
+      
   end
 end
