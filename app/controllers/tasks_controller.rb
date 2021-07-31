@@ -12,6 +12,11 @@ class TasksController < ApplicationController
 
   # GET /tasks/1 or /tasks/1.json
   def show
+    @tasks = Task.all
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @task}
+    end
   end
 
   # GET /tasks/new
@@ -21,12 +26,12 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    authorize @task
   end
 
   # POST /tasks or /tasks.json
   def create
     @task = Task.new(task_params)
-
     @task.user_id = current_user.id
     respond_to do |format|
       if @task.save
@@ -54,11 +59,15 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1 or /tasks/1.json
   def destroy
+    authorize @task
     @task.destroy
     respond_to do |format|
       format.html { redirect_to tasks_url, notice: "Task was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def dashboard
   end
 
   def toggle_favorite
@@ -78,7 +87,7 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :description, :price, :user_id, :category_id, :comment)
+      params.require(:task).permit(:title, :description, :price, :user_id, :category_id, :comment, :task_date)
     end
 
 end

@@ -38,6 +38,7 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem "aws-sdk-s3", require: false
 gem "datetime_picker_rails", github: "graysonwright/datetime_picker_rails"
 gem "pundit"
+gem 'kaminari'
 
 
 group :development, :test do

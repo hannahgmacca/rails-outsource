@@ -21,6 +21,14 @@
         <%= @task.category.title %>
       </p>
 
+      <% if @task.task_date %>
+      <p>
+        <strong>Task to be completed on:</strong>
+        <%= @task.task_date.strftime("%d-%m-%Y") %>
+      </p>
+      <% else %>
+        <p>This task has a flexible completion date.</p></p>
+      <% end %>
     
       <p>
         <strong>User:</strong>

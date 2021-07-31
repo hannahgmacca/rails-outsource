@@ -1,12 +1,12 @@
 <div class="page container">
 
 	<p id="notice"><%= notice %></p>
-
 	<h1>Tasks near you</h1>
-
 	<% @tasks.each do |task| %>
+
 		<div class="py-4">
 			<div class="card w-50">
+
 				<div class="card-header" >
 					<td><%= task.category.title %></td>
 				</div>
@@ -16,49 +16,53 @@
 						<%= task.title %>
 				</div>
 
-					<div class="card-text">
-						<%= task.description %>
-					</div>
-			
-					<div class="card-text">
-					<p>
-						$<%= task.price %>
-					</p>
-					</div>
+				<div class="card-text">
+					<%= task.description %>
+				</div>
 
-					<%= task.user.first_name %> <%= task.user.surname %>
-					<br><br>
+				<div class="card-text">
+				<p>
+					$<%= task.price %>
+				</p>
+				</div>
 
-					<div class="comment-count">
-          				<span class="tag is-rounded"><%= task.comments.count %> comments</span>
-         			</div>
+				<%= task.user.first_name %> <%= task.user.surname %>
+				<br><br>
 
-					<div class="favourite-count">
-          			<span class="tag is-rounded">
+				<div class="comment-count">
+					<span class="tag is-rounded"><%= task.comments.count %> comments</span>
+				</div>
+
+				<div class="favourite-count">
+					<span class="tag is-rounded">
 					<% if task.favoritable_score.values.empty? %>
 						0 favourites
 					<% else %>
 						<%= task.favoritable_score.values[0] %>
 						favourites</span>
 					<%end%>
-					</div>
+				</div>
 
 				<%= link_to toggle_favorite_task_path(task), remote: true, method: :post do %>
 					<%= render 'tasks/like_button', task: task %>
 				<% end %>
 
-				<% if current_user.has_applied?(task.id) %>
-						<%= link_to 'Applied', task_applications_path, class: "btn btn-primary" %>
-				<% else %>
-						<%= link_to 'Apply', new_task_application_path(task_id: task.id, user_id: current_user), class: "btn btn-primary" %>
-				<% end %>
-				<%= link_to 'Show', task, class: "btn btn-primary" %>
-				<%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary" %>
-				<%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%>
+				<div class="links-container">
+					<% if current_user %>
+						<% if current_user.has_applied?(task.id) %>
+								<%= link_to 'Applied', task_applications_path, class: "btn btn-primary" %>
+						<% elsif task.user == current_user  %>
+                <%= link_to 'Show', task, class: "btn btn-primary" %>
+					      <%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary" %>
+					      <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%>
+						<% else %>
+                	<%= link_to 'Apply', new_task_application_path(task_id: task.id, user_id: current_user), class: "btn btn-primary" %>
+            <% end %>
+					<% end %>
+		
 				</div>
 			</div>
 		</div>
 	<% end %>
-
 	<br>
 </div>

@@ -51,23 +51,24 @@ a {
   .h1 {font-size: 12px;}
   .navbar {height: 130px}
   .navbar-brand img {height: 100px; width: 100px;}
-  #prov {font-size:60px}
+  #prov {font-size:40px}
 
   /* Small devices (tablets, 768px and up) */
   @media (min-width: 768px) {
     h1 { font-size: 50px; }
-
+    #prov {font-size:40px}
   }
 
   /* Medium devices (desktops, 992px and up) */
   @media (min-width: 992px) {
     h1 { font-size: 60px; }
-    #prov {font-size:50px}
+    #prov {font-size:30px}
   }
 
   /* Large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
     h1 { font-size: 60px; }
+    #prov {font-size:30px}
     .navbar {height: 90px}
     .navbar-brand img {height: 75px; width: 75px;}
   }

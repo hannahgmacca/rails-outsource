@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
     # Pundit Gem for resource authoritsation
     include Pundit
+
+    def user_not_authorized
+      flash[:alert] = "You are not authorized to perform this action."
+      redirect_to(request.referrer || root_path)
+    end
+  
     # User authentication
     protect_from_forgery with: :exception
     before_action :authenticate_user!, :except => [:index]

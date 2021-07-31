@@ -1,9 +1,10 @@
 class TaskApplicationsController < ApplicationController
   before_action :set_task_application, only: %i[ show edit update destroy ]
 
-  # GET /applications or /applications.json
+  # GET /applications or /applications.json 
+  # Shows only the applications that the user has posted
   def index
-    @task_applications = TaskApplication.all
+    @task_applications = TaskApplication.where(:user_id => current_user.id )
   end
 
   # GET /applications/1 or /applications/1.json
@@ -13,6 +14,7 @@ class TaskApplicationsController < ApplicationController
   # GET /applications/new
   def new
     @task_application = TaskApplication.new
+    @task = Task.find(params[:task_id])
   end
 
   # GET /applications/1/edit
@@ -70,6 +72,6 @@ class TaskApplicationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_application_params
-      params.require(:task_application).permit(:message, :user_id, :task_id)
+      params.require(:task_application).permit(:message, :user_id, :task_id, :task_date)
     end
 end

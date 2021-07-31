@@ -1,5 +1,24 @@
-<h1>New Application</h1>
+<div class="card container mt-5 w-75 p-5" style="height: 500px;">
+    <div class="row">
+			<div class="col-lg-10 col-md-10">
+				<h2>Describe why you'd be fit to:</h2>
+				<br>
+				<h3><%= @task.title %></h3>
 
-<%= render 'form', application: @task_application %>
+				<% if @task.task_date %>
+				<p><%= @task.task_date.strftime("%Y %m %d") %></p>
+				<% else %>
+				<p>This task has flexible completion date</p>
+				<% end %>
+				<br>
+				<%= render 'form', application: @task_application %>
+				<br>
+				<%= link_to 'Back', task_applications_path %>
+			</div>
+			<div class="col-lg-2 col-md-2 bg-dark">
 
-<%= link_to 'Back', task_applications_path %>
+			</div>
+
+    </div>
+
+</div>
