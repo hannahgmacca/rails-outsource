@@ -70,6 +70,14 @@ class TasksController < ApplicationController
   def dashboard
   end
 
+  def approved_tasks
+
+  end
+
+  def approved_task
+  
+  end
+
   def toggle_favorite
     # @task = Task.find_by(id: params[:id])
     current_user.favorited?(@task) ? current_user.unfavorite(@task) : current_user.favorite(@task)

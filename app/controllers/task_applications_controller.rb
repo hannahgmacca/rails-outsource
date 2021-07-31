@@ -23,6 +23,7 @@ class TaskApplicationsController < ApplicationController
 
   # POST /applications or /applications.json
   def create
+    # Checks if this task is already applied for
     @task_application = TaskApplication.find_by_user_id_and_task_id(params[:task_application][:user_id], params[:task_application][:task_id])
     if !@task_application.nil?
       redirect_to @task_application, alert: "You've already applied for this job."
@@ -72,6 +73,6 @@ class TaskApplicationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_application_params
-      params.require(:task_application).permit(:message, :user_id, :task_id, :task_date)
+      params.require(:task_application).permit(:message, :user_id, :task_id)
     end
 end
