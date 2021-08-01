@@ -75,7 +75,18 @@ class TasksController < ApplicationController
   end
 
   def approved_task
-  
+    # find task that is being approved
+    application = TaskApplication.find(params[:task_application_id])
+    approved_task = Task.find(application.task_id)
+    approved_task.sourced = true
+    application.approved = true
+    if approved_task.save
+      format.html { redirect_to approved_task, notice: "Task was successfully approved!" }
+      format.json { render :show, status: :created, location: approved_task }
+    else
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: approved_task.errors, status: :unprocessable_entity }
+    end
   end
 
   def toggle_favorite
@@ -95,7 +106,7 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :description, :price, :user_id, :category_id, :comment, :task_date)
+      params.require(:task).permit(:title, :description, :price, :user_id, :category_id, :comment, :task_date, :sourced)
     end
 
 end

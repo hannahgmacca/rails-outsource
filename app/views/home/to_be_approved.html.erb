@@ -22,7 +22,7 @@
 					<%= task_application.user.first_name %> <%= task_application.user.surname %>
 				</div>
 
-                <%= link_to 'Approve', approved_task_path(task_application), class: "btn btn-primary" %>
+                <%= link_to 'Approve', approved_task_path(task_application_id: task_application.id), class: "btn btn-primary" %>
                 <%= link_to 'Decline', task_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 			
 				<br><br>

@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   def index
   end
 
-  def approved_tasks
+  def to_be_approved
       @task_applications = TaskApplication.joins(:task).where(tasks: {user_id: current_user, sourced: false})
   end
 
