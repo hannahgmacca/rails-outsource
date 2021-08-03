@@ -13,4 +13,7 @@ class HomeController < ApplicationController
   def user_profile
 
   end
+
+  def dashboard
+  end
 end

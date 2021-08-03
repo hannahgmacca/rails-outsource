@@ -11,6 +11,10 @@ class TaskApplicationsController < ApplicationController
   def show
   end
 
+  def total_approved
+    
+  end
+
   # GET /applications/new
   def new
     @task_application = TaskApplication.new
@@ -40,7 +44,6 @@ class TaskApplicationsController < ApplicationController
       end
     end
   end
-
 
 
   # PATCH/PUT /applications/1 or /applications/1.json

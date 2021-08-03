@@ -1,0 +1,33 @@
+<div class="card container mt-5">
+	<div class="row p-5">
+
+		<div class="col-lg-4">
+			<% if @user.picture.attached? %>
+        <%= image_tag @user.picture, width: "200px", class:"" %>
+      <% else %>
+          <%= image_tag "anonymous.png", width: "200px", class:"" %>
+      <% end %>
+      
+      <p class="align-middle">
+        <strong>User:</strong>
+        <%= @user.first_name %> <%= @user.surname %>
+      </p> 
+		</div>
+
+		<div class="col-lg-8">
+			<h1><%= @user.first_name%> <%= @user.surname%></h1>
+		
+			<% if @user.about_me.nil? %>
+				<p>This user is shy, they haven't got any information about themselves on their profile!</p>
+			<% else %>
+				<p><%= @user.about_me %></p>
+			<% end %>
+
+			<p>They have completed a total of <%= @user.total_completed.to_s %> applications</p>
+		
+			<%= link_to "Contact this user",new_task_path, method: :get, class: "btn btn-info btn-lg" %>
+
+		</div>
+	
+	</div>
+</div>

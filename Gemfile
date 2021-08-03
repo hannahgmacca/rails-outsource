@@ -45,6 +45,8 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem "aws-sdk-s3", require: false
 # Pundit for user authorisations
 gem "pundit"
+# Kaminari for definining scopes and paginating 
+gem 'kaminari'
 
 
 group :development, :test do

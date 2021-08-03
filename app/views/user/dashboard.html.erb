@@ -1,0 +1,69 @@
+<div class="dash-body container d-flex flex-column">
+	<div class="card container p-5 mt-5">
+
+	<div class="row">
+		<div class="col-lg-9 col-md-7">
+			<h1 class="d-inline">Welcome back, <%= current_user.first_name%>!</h1>
+			<hr>
+			<% if current_user.about_me.nil? %>
+				<h5>We are missing some information about you, please complete your profile</h5>
+				<%= link_to 'Edit profile', edit_user_registration_url, class: "btn btn-primary m-1" %>
+			<% end %>
+		</div>
+
+		<div class="col-lg-2 m-4 col-md-1 p-2">
+			<% if current_user.picture.attached? %>
+				<%= image_tag current_user.picture, width: "100px", class:"" %>
+			<% else %>
+				<%= image_tag "anonymous.png", width: "100px", class:"" %>
+				<%= link_to 'Add picture', edit_user_registration_url, class: "btn btn-primary btn-sm mx-auto mt-3" %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-7">
+
+		<h2 class="text-white text-center mt-3">Check out some tasks near you:</h2>
+			
+		<% @latest_tasks.each do |task| %>
+			<div class="card container mt-3 p-4">
+				<div class="row">
+				<div class="col-lg-8">
+					<h5><%= link_to task.title, task_path(task) %></h5>
+
+					<small><p><%= task.category.title %></p></small>
+	
+					<small><p><i class="fa fa-clock"></i> Posted 
+					<%= time_ago_in_words(task.created_at) %> ago
+					</p></small>
+
+						<%= link_to 'Apply', new_task_application_path(task_id: task.id, user_id: current_user), class: "btn btn-primary" %>
+					</div>
+
+					<div class="col-lg-3">
+						<% if task.user.picture.attached? %>
+							<%= image_tag task.user.picture, width: "100px", class:"" %>
+						<% else %>
+							<%= image_tag "anonymous.png", width: "100px", style: ""%>
+						<% end %>
+						<p class="text-center"><%= task.user.first_name %> <%= task.user.surname %></p>
+					</div>
+
+					</div>
+				</div>
+			<% end %>
+		</div>
+
+		<div class="col-lg-5">
+			<div class="card container p-3 mt-3">
+			<h2>Your account:</h2>
+				<%= link_to 'Edit profile', tasks_path, class: "btn btn-primary m-1" %>
+				<%= link_to 'Favourites', tasks_path, class: "btn btn-primary m-1" %>
+				<%= link_to 'Applications', tasks_path, class: "btn btn-primary m-1" %>
+			</div>
+		</div>
+	</div>
+</div>
+

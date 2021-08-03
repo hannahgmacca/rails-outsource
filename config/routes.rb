@@ -16,8 +16,11 @@ Rails.application.routes.draw do
     end
 
   # User profiles page routes
-  # get '/profile', to: "home#user_profile", as: 'profile'
-  # get '/profile/:id', to: 'home#profile'
+   get 'profile', to: 'user#current_user_profile', as: 'user_profile'
+   get 'user/:id', to: 'user#profile', as: 'profile'
+  
+   # Dashboard route
+   get 'dashboard', to: 'user#dashboard', as: 'dashboard'
 
   resources :comments
   resources :task_applications

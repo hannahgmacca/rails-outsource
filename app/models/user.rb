@@ -18,4 +18,10 @@ class User < ApplicationRecord
         true
       end
   end
+
+  def total_completed
+      count = TaskApplication.where( user_id: self.id, approved: true ).to_a.count
+      puts "#{self.first_name} has count of #{count}"
+      return count
+  end
 end
