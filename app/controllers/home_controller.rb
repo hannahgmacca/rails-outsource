@@ -9,4 +9,8 @@ class HomeController < ApplicationController
   def archived_tasks
       
   end
+
+  def user_profile
+
+  end
 end

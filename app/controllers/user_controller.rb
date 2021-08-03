@@ -5,6 +5,9 @@ class UserController < ApplicationController
         super
     end
 
+    def profile_url
+    end
+
     private
     
     def configure_sign_up_params

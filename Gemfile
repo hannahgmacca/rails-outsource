@@ -29,16 +29,22 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Additional Gems
+# BOOTSTRAP for styling of views and UI
 gem 'bootstrap', '~> 4.5.2'
+# JQuery for JS functionality 
 gem 'jquery-rails'
+# Devise for user authentication
 gem 'devise'
+# Simple form for user input controls
 gem 'simple_form'
+# Acts As Favoritor to implement like and unlike of tasks
 gem 'acts_as_favoritor', '~> 5.0', '>= 5.0.1'
+# Font Aweseome for icons used throughout the app
 gem 'font-awesome-sass', '~> 5.6.1'
+# Amazon web services for photo uploading
 gem "aws-sdk-s3", require: false
-gem "datetime_picker_rails", github: "graysonwright/datetime_picker_rails"
+# Pundit for user authorisations
 gem "pundit"
-gem 'kaminari'
 
 
 group :development, :test do
@@ -57,3 +63,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
