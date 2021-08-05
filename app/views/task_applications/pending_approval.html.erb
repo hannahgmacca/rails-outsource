@@ -1,29 +1,29 @@
-<div class="page container">
+<div class="page container mt-4">
 
 <% if @task_applications.any? %>
-<h1>Please review the following tasks</h1>
+<h1 class="text-white">Please review the following tasks:</h1>
 	<% @task_applications.each do |task_application| %>
 
 		<div class="">
 			<div class="card">
 
 				<div class="card-header" >
-					<td>Needs review</td>
+					<td><strong>Your task: </strong><%= task_application.task.title %></td>
 				</div>
 
         <div class="card-body">
 					<div class="h2">
-					<%= task_application.message %>
-				</div>
+						<%= task_application.user.first_name %> <%= task_application.user.surname %>
+					</div>
+					<p><%= task_application.message %></p>
+					<br>
+					<div class="row mx-2">
+						<%= link_to 'Approve', approved_task_path(task_application_id: task_application.id), class: "btn btn-primary mx-1" %>
+						<%= link_to 'Decline', decline_task_application_path(task_application_id: task_application.id), data: { confirm: 'Are you sure?' }, class: "btn btn-danger mx-1" %>
+					</div>
 
-        <div class="card-body">
-					<%= task_application.user.first_name %> <%= task_application.user.surname %>
 				</div>
-
-        <%= link_to 'Approve', approved_task_path(task_application_id: task_application.id), class: "btn btn-primary" %>
-        <%= link_to 'Decline', task_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-			
-				<br><br>
+				<br>
 			</div>
 		</div>
 		<% end %>

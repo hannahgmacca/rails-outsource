@@ -13,7 +13,8 @@ class UserController < ApplicationController
     end
     
     def dashboard
-        @latest_tasks = Task.all_sort_by_date_skip_first
+        @latest_tasks = Task.where.not(:user_id => current_user.id).where(sourced: [nil, false ]).last(3)
+        @active_tasks = Task.where(:user_id => current_user.id, sourced: [nil, false])
     end
     
     private

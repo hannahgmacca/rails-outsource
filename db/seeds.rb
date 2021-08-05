@@ -59,8 +59,7 @@ if Task.count == 0
         :price => 50, 
         :category_id => 1, 
         :user_id => "1", 
-        :remote_work => false, 
-        :sourced => false })
+        :remote_work => false })
      puts "Created #{task1.title} task"
 
      task2 = Task.create!({
@@ -69,8 +68,7 @@ if Task.count == 0
         :price => 25, 
         :category_id => 2, 
         :user_id => "2", 
-        :remote_work => false, 
-        :sourced => false })
+        :remote_work => false })
     puts "Created #{task2.title} task"
 
     task3 = Task.create!({
@@ -79,7 +77,6 @@ if Task.count == 0
         :price => 150, 
         :category_id => 5, 
         :user_id => "3", 
-        :remote_work => true, 
-        :sourced => false })
+        :remote_work => true})
     puts "Created #{task3.title} task"
 end

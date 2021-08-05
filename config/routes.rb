@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   # Routes for approved tasks
-    get 'tasks/approved', to: "tasks#approved_task", as: 'approved_task'
-    get '/tasks/approved_tasks', to: "tasks#approved_tasks", as: 'approved_tasks'
-    get 'tasks/pending_approval', to: "tasks#pending_approval", as: 'to_be_approved'
+    get 'tasks/approved', to: "tasks#approve_task", as: 'approved_task'
+    #get '/tasks/approved_tasks', to: "tasks#approved_tasks", as: 'approved_tasks'
+    get 'task_applications/pending_approval', to: "task_applications#pending_approval", as: 'pending_approval'
+    get 'declined', to: 'task_applications#decline', as: 'decline_task_application'
 
   # Routes for favourited tasks page
     get 'favourites', to: "tasks#favourites", as: 'favourites'

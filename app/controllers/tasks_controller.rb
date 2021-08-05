@@ -6,7 +6,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json that are not sourced and are not posted by the user
   def index
-    @tasks = Task.where.not(:user_id => current_user.id).where(:sourced => nil )
+    @tasks = Task.where.not(:user_id => current_user.id).where(sourced: [nil, false ])
     @favorite_tasks = current_user.favorited_by_type('Task')
   end
 
@@ -70,21 +70,16 @@ class TasksController < ApplicationController
   def dashboard
   end
 
-  def approved_tasks
-  end
-
-  def pending_approval
-    @task_applications = TaskApplication.joins(:task).where(tasks: {user_id: current_user, sourced: false})
-  end
-
-  def approved_task
+  def approve_task
     # find task that is being approved
     application = TaskApplication.find(params[:task_application_id])
-    approved_task = Task.find(application.task_id)
+    approved_task = Task.find(application.task.id)
     approved_task.sourced = true
     application.approved = true
     respond_to do |format|
-      if approved_task.save
+      if application.save && approved_task.save
+        puts "#{application.message} was approved"
+        puts "#{approved_task.title} was approved"
         format.html { redirect_to approved_task, notice: "Task was successfully approved!" }
         format.json { render :show, status: :created, location: approved_task }
       else

@@ -12,9 +12,9 @@
           <p class="btn btn-sm btn-warning">Pending approval</p>
         <!-- if approved -->
         <% elsif task_application.approved %>
-          <p class="btn btn-sm btn-success"></p>
-        <!-- if declined -->
-        <% elsif task_application.approved.nil? && !task_application.task.sourced.nil?%>
+          <p class="btn btn-sm btn-success">Approved</p>
+        <!-- if task poster has declined application or has approved another application for this task -->
+        <% elsif !task_application.approved || (task_application.approved.nil? && !task_application.task.sourced.nil?) %>
           <p class="btn btn-sm btn-danger">Declined</p>
         <% end %>
        </div>
@@ -23,7 +23,7 @@
         <p><strong>Your message: </strong><%= task_application.message %>
         <br><br>
         <i class="fa fa-user"></i> 
-        <%= task_application.user.first_name %> <%= task_application.user.surname %>
+        <%= task_application.task.user.first_name %> <%= task_application.task.user.surname %>
         <br>
         <i class="fa fa-clock"></i> 
         Application sent <%= time_ago_in_words(task_application.created_at)%></p>

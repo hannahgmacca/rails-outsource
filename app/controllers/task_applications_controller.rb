@@ -1,5 +1,6 @@
 class TaskApplicationsController < ApplicationController
-  before_action :set_task_application, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :set_task_application, only: %i[ show edit update destroy decline ]
 
   # GET /applications or /applications.json 
   # Shows only the applications that the user has posted
@@ -11,7 +12,11 @@ class TaskApplicationsController < ApplicationController
   def show
   end
 
-  def total_approved
+  # Retrieve tasks posted by this user that
+  # 1. haven't been declined 
+  # 2. Haven't been sourced yet. 
+  def pending_approval
+    @task_applications = TaskApplication.joins(:task).where(tasks: { user_id: current_user, sourced: nil}, :approved => nil)
 
   end
 
@@ -63,15 +68,25 @@ class TaskApplicationsController < ApplicationController
   def destroy
     @task_application.destroy
     respond_to do |format|
-      format.html { redirect_to task_applications_path, notice: "Application was successfully destroyed." }
+      format.html { redirect_to pending_approval_path, notice: "Application was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def decline
+    @task_application.approved = false
+    if @task_application.save
+      respond_to do |format|
+        format.html { redirect_to pending_approval_path, notice: "Application was successfully declined" }
+        format.json { head :no_content }
+      end
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task_application
-      @task_application = TaskApplication.find(params[:id])
+      @task_application = TaskApplication.find(params[:task_application_id])
     end
 
     # Only allow a list of trusted parameters through.

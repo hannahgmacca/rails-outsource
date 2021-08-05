@@ -24,4 +24,10 @@ class User < ApplicationRecord
       puts "#{self.first_name} has count of #{count}"
       return count
   end
+
+  def total_applications_to_be_reviewed
+     count = @task_applications = TaskApplication.joins(:task).where(tasks: { user_id: self.id, sourced: nil}, :approved => nil).to_a.count
+     puts "#{self.first_name} has count of #{count}"
+     return count
+  end
 end
