@@ -39,7 +39,8 @@
 					<%= time_ago_in_words(task.created_at) %> ago
 					</p></small>
 
-						<%= link_to 'Apply', new_task_application_path(task_id: task.id, user_id: current_user), class: "btn btn-primary" %>
+					<%= link_to 'Apply', new_task_application_path(task_id: task.id, user_id: current_user), class: "btn btn-primary" %>
+					
 					</div>
 
 					<div class="col-lg-3">

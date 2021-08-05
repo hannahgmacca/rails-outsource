@@ -7,12 +7,18 @@
         <div class="col-lg-5">
           <div class="form-group">
             <% if @user.picture.attached? %>
-              <%= image_tag user.picture, width: "200px", class:"mx-auto img-thumbnail" %>
+              <%= image_tag @user.picture, width: "200px", class:"mx-auto img-thumbnail d-block" %>
             <% else %>
-                <p class="badge badge-warning">Please add a profile picture!</p>
+                <p class="badge badge-warning">Please add a profile picture</p>
                 <%= image_tag "anonymous.png", width: "200px", class:"mx-auto img-thumbnail d-block" %>
             <% end %>
-            <%= f.file_field :picture, accepts: "image/png,image/jpg,image/jpeg", :label => "Profile Picture", class:"m-3 d-block" %>
+            <%= f.file_field :picture, accepts: "image/png,image/jpg,image/jpeg", :label => "Upload photo", class:"m-3 d-block" %>
+
+            <% if @user.about_me.nil? %>
+              <p class="badge badge-warning">Please add an about me</p>
+            <% end %>
+            <strong><p>Tell us a bit about yourself:</p></strong>
+            <%= f.input :about_me, :as => :text, input_html: {rows: 6, cols: 5} %>
           </div>
         </div>
 

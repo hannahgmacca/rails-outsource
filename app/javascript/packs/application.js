@@ -8,9 +8,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-//= require jquery3
+//= require jquery
 //= require popper
 //= require bootstrap-sprockets
+
 
 // FOR DATE AND TIME PICKER
 //= require moment
