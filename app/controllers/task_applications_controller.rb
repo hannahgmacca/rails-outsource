@@ -73,7 +73,7 @@ class TaskApplicationsController < ApplicationController
     end
   end
 
-  def approve_application
+  def approve_task_application
     # find task that is being approved
     application = TaskApplication.find(params[:task_application_id])
     approved_task = Task.find(application.task.id)

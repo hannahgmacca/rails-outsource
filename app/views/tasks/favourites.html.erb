@@ -1,65 +1,84 @@
 <div class="page container">
-  <h1 class="text-white text-center">Your favourited tasks</h1>
-	<% @favourite_tasks.each do |task| %>
+	<% if @favourite_tasks.any? %>
+		<h1 class="text-white text-center">Your favourited tasks</h1>
+		<% @favourite_tasks.each do |task| %>
 
-		<div class="py-4">
-			<div class="card">
-				<div class="card-header" >
-					<td><%= task.category.title %></td>
-				</div>
+			<div class="py-4">
+				<div class="card">
+					<div class="card-header" >
+						<td><%= task.category.title %></td>
+					</div>
 
-				<div class="card-body">
-          <div class="row">
-            <%= link_to toggle_favorite_task_path(task), remote: true, method: :post do %>
-            <%= render 'tasks/like_button', task: task %>
-           <% end %>
-            <h2><%= task.title %></h2>
-				  </div>
+					<div class="card-body">
+						<div class="row">
+							<%= link_to toggle_favorite_task_path(task), remote: true, method: :post do %>
+							<%= render 'tasks/like_button', task: task %>
+						<% end %>
+							<h2><%= task.title %></h2>
+						</div>
 
-				<div class="card-text">
-					<%= task.description %>
-				</div>
+					<div class="card-text">
+						<%= task.description %>
+					</div>
 
-				<div class="card-text">
-				<p>
-					$<%= task.price %>
-				</p>
-				</div>
+					<div class="card-text">
+					<p>
+						$<%= task.price %>
+					</p>
+					</div>
 
-				<%= task.user.first_name %> <%= task.user.surname %>
-				<br><br>
+					<%= task.user.first_name %> <%= task.user.surname %>
+					<br><br>
 
-				<div class="comment-count">
-					<span class="tag is-rounded"><%= task.comments.count %> comments</span>
-				</div>
+					<div class="comment-count">
+						<span class="tag is-rounded"><%= task.comments.count %> comments</span>
+					</div>
 
-				<div class="favourite-count">
-					<span class="tag is-rounded">
-					<% if task.favoritable_score.values.empty? %>
-						0 favourites
-					<% else %>
-						<%= task.favoritable_score.values[0] %>
-						favourites</span>
-					<%end%>
-				</div>
-        <br>
-
-				<div class="links-container">
-					<% if current_user %>
-						<% if current_user.has_applied?(task.id) %>
-								<%= link_to 'Applied', task_applications_path, class: "btn btn-primary" %>
-						<% elsif task.user == current_user  %>
-                <%= link_to 'Show', task, class: "btn btn-primary" %>
-					      <%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary" %>
-					      <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%>
+					<div class="favourite-count">
+						<span class="tag is-rounded">
+						<% if task.favoritable_score.values.empty? %>
+							0 favourites
 						<% else %>
-                	<%= link_to 'Apply', new_task_application_path(task_id: task.id, user_id: current_user), class: "btn btn-primary" %>
-            <% end %>
-					<% end %>
+							<%= task.favoritable_score.values[0] %>
+							favourites</span>
+						<%end%>
+					</div>
+					<br>
+
+					<div class="links-container">
+						<% if current_user %>
+							<% if current_user.has_applied?(task.id) %>
+									<%= link_to 'Applied', task_applications_path, class: "btn btn-primary" %>
+							<% elsif task.user == current_user  %>
+									<%= link_to 'Show', task, class: "btn btn-primary" %>
+									<%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary" %>
+									<%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%>
+							<% else %>
+										<%= link_to 'Apply', new_task_application_path(task_id: task.id, user_id: current_user), class: "btn btn-primary" %>
+							<% end %>
+						<% end %>
+			
+					</div>
+				</div>
+			</div>
+		<% end %>
+		<br>
+	<% else %>
+	<div class="container">
+			<h1 class="text-white text-center mt-4">You've got no tasks favourited!</h1>		
+			<div class='mx-auto'>
+				<%= image_tag "happy.png", width: "350px", alt: "Happy lady", class: "rounded mx-auto d-block"  %>
+			</div>
 		
+			<div class="card container p-3">
+				<h2 class="text-center">Where would you like to go?</h2>
+				<div class="row d-flex justify-content-between w-75 mx-auto">
+					<%= link_to 'Dashboard', dashboard_path, class: "btn btn-primary col-lg-3" %>
+					<%= link_to 'Home', '/', class: "btn btn-primary col-lg-3 mx-2" %>
+					<%= link_to 'Tasks', tasks_path, class: "btn btn-primary col-lg-3 mx-2" %>
 				</div>
 			</div>
 		</div>
+
 	<% end %>
-	<br>
 </div>

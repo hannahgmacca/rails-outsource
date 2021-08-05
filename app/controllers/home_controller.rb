@@ -6,12 +6,7 @@ class HomeController < ApplicationController
       @task_applications = TaskApplication.joins(:task).where(tasks: {user_id: current_user, sourced: false})
   end
 
-  def archived_tasks
-      
-  end
-
   def user_profile
-
   end
 
   def dashboard
