@@ -8,9 +8,6 @@ class UserController < ApplicationController
     def profile
         @user = User.find(params[:id])
     end
-
-    def current_user_profile
-    end
     
     def dashboard
         @latest_tasks = Task.where.not(:user_id => current_user.id).where(sourced: [nil, false ]).last(3)

@@ -70,25 +70,6 @@ class TasksController < ApplicationController
   def dashboard
   end
 
-  def approve_task
-    # find task that is being approved
-    application = TaskApplication.find(params[:task_application_id])
-    approved_task = Task.find(application.task.id)
-    approved_task.sourced = true
-    application.approved = true
-    respond_to do |format|
-      if application.save && approved_task.save
-        puts "#{application.message} was approved"
-        puts "#{approved_task.title} was approved"
-        format.html { redirect_to approved_task, notice: "Task was successfully approved!" }
-        format.json { render :show, status: :created, location: approved_task }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: approved_task.errors, status: :unprocessable_entity }
-      end
-  end
-  end
-
   def toggle_favorite
     # @task = Task.find_by(id: params[:id])
     current_user.favorited?(@task) ? current_user.unfavorite(@task) : current_user.favorite(@task)
