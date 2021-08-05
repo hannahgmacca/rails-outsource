@@ -1,7 +1,12 @@
 class TaskPolicy < ApplicationPolicy
   
+  def initialize(user, task)
+    @user = user
+    @task = task
+  end
+
     def created_by_user?
-        task.user_id == user.id
+        @task.user_id == user.id
     end
     
     def update?

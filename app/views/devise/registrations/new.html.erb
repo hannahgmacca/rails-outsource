@@ -12,28 +12,28 @@
       <%= f.error_notification %>
         <div class="row">
           <div class="form-group px-3 col-lg-6">
-          <%= f.input :first_name,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
+            <%= f.input :first_name,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
           </div>
           <div class="form-group col-lg-6">
-          <%= f.input :surname,
-                      required: true,
-                      autofocus: true %>
+            <%= f.input :surname,
+                        required: true,
+                        autofocus: true %>
           </div>
         </div>
         <div class="dropdown">
-        <%= f.input :city_id do %>
-          <%= f.select :city_id, City.all.map { |c| [c.name, c.id, input_html: { class: "btn btn-secondary dropdown-toggle"}]}%>
-        <% end %>
+          <%= f.input :city_id do %>
+            <%= f.select :city_id, City.all.map { |c| [c.name, c.id, input_html: { class: "btn btn-secondary dropdown-toggle"}]}%>
+          <% end %>
         </div>
         <div class="form-group">
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    class: "form-control",
-                    input_html: { autocomplete: "email" } %>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      class: "form-control",
+                      input_html: { autocomplete: "email" } %>
         </div>
         <div class="row">
           <div class="form-group col-lg-6">
@@ -42,23 +42,21 @@
                         class: "form-control",
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" } %>
-            </div>
-            <div class="form-group col-lg-6">
+          </div>
+          <div class="form-group col-lg-6">
             <%= f.input :password_confirmation,
                         required: true,
                         class: "form-control",
                         input_html: { autocomplete: "new-password" } %>
           </div>
         </div>
-         <div class="form-group">
-         <%= f.file_field :picture, accepts: "image/png,image/jpg,image/jpeg", :label => "Profile Picture" %>
-        </div>
-
+      <div class="form-group">
+        <%= f.file_field :picture, accepts: "image/png,image/jpg,image/jpeg", :label => "Profile Picture" %>
+      </div>
       <div class="clear-fix">
         <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
       </div>
     <% end %>
-
     <%= render "devise/shared/links" %>
     </div>
   </div>

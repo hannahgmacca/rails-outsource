@@ -1,14 +1,26 @@
-<div class="box">
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <%= comment.message %>
-
-        </p>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-1 align-middle">
+      <% if comment.user.picture.attached? %>
+        <%= image_tag comment.user.picture, width: "65px", class:"img-thumbnail" %>
+      <% else %>
+          <%= image_tag "anonymous.png", width: "65px", class:"img-thumbnail" %>
+      <% end %>
     </div>
-     <%= link_to 'Delete', [comment.task, comment],
-        method: :delete, class: "bn btn-danger", data: { confirm: 'Are you sure?' } %>
-  </article>
+
+    <div class="col-lg-11">
+      <p>
+      <strong>User: </strong><%= comment.user.first_name %> <%= comment.user.surname %>:</p>
+      <p><%= comment.message %></p>
+
+      <p><small><i class="fa fa-clock"></i> Posted 
+        <%= time_ago_in_words(comment.created_at) %> ago</small></p>
+
+      <% if comment.user == current_user%>
+        <%= link_to 'Delete', [comment.task, comment],
+        method: :delete, class: "bn btn-danger", data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+      <% end %>
+    </div>
+  </div>
 </div>
+

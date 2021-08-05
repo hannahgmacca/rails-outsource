@@ -1,10 +1,9 @@
 <div class="page container">
-  <h1>Tasks near you</h1>
-	<% @tasks.each do |task| %>
+  <h1 class="text-white text-center">Your favourited tasks</h1>
+	<% @favourite_tasks.each do |task| %>
 
 		<div class="py-4">
-			<div class="card w-50">
-
+			<div class="card">
 				<div class="card-header" >
 					<td><%= task.category.title %></td>
 				</div>
@@ -13,7 +12,7 @@
           <div class="row">
             <%= link_to toggle_favorite_task_path(task), remote: true, method: :post do %>
             <%= render 'tasks/like_button', task: task %>
-            <% end %>
+           <% end %>
             <h2><%= task.title %></h2>
 				  </div>
 

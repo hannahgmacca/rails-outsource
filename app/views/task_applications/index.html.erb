@@ -1,29 +1,39 @@
-<h1>Applications</h1>
+<div class="container mt-5">
+<h1 class="text-white text-center">Your Applications</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Message</th>
-      <th>User</th>
-      <th>Task</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @task_applications.each do |task_application| %>
-      <tr>
-        <td><%= task_application.message %></td>
-        <td><%= task_application.user_id %></td>
-        <td><%= task_application.task_id %></td>
-        <td><%= link_to 'Show', task_application %></td>
-        <td><%= link_to 'Edit', edit_task_application_path(task_application) %></td>
-        <td><%= link_to 'Destroy', task_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="card container p-4 m-4">
+        <h2><%= task_application.task.title %></h2>
+       
+       <!-- APPLICATION STATUS -->
+       <div class="w-25">
+        <!-- if neither approved or declined -->
+        <% if task_application.approved.nil? && task_application.task.sourced.nil? %>
+          <p class="btn btn-sm btn-warning">Pending approval</p>
+        <!-- if approved -->
+        <% elsif task_application.approved %>
+          <p class="btn btn-sm btn-success"></p>
+        <!-- if declined -->
+        <% elsif task_application.approved.nil? && !task_application.task.sourced.nil?%>
+          <p class="btn btn-sm btn-danger">Declined</p>
+        <% end %>
+       </div>
+
+        
+        <p><strong>Your message: </strong><%= task_application.message %>
+        <br><br>
+        <i class="fa fa-user"></i> 
+        <%= task_application.user.first_name %> <%= task_application.user.surname %>
+        <br>
+        <i class="fa fa-clock"></i> 
+        Application sent <%= time_ago_in_words(task_application.created_at)%></p>
+
+        <div class="links-container">
+         <%= link_to 'View task', task_path(task_application.task), class: "btn btn-info" %>
+        <%= link_to 'Edit', edit_task_application_path(task_application), class: "btn btn-info" %>
+        <%= link_to 'Destroy', task_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Application', new_task_application_path %>
+</div>

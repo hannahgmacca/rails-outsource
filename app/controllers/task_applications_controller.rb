@@ -12,7 +12,7 @@ class TaskApplicationsController < ApplicationController
   end
 
   def total_approved
-    
+
   end
 
   # GET /applications/new
@@ -35,7 +35,7 @@ class TaskApplicationsController < ApplicationController
       @task_application = TaskApplication.new(task_application_params)
       respond_to do |format|
         if @task_application.save
-          format.html { redirect_to @task_application, notice: "Application was successfully created." }
+          format.html { redirect_to task_applications_path, notice: "Application was successfully created." }
           format.json { render :show, status: :created, location: @task_application }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -63,7 +63,7 @@ class TaskApplicationsController < ApplicationController
   def destroy
     @task_application.destroy
     respond_to do |format|
-      format.html { redirect_to task_applications_url, notice: "Application was successfully destroyed." }
+      format.html { redirect_to task_applications_path, notice: "Application was successfully destroyed." }
       format.json { head :no_content }
     end
   end

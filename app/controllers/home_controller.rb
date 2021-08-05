@@ -14,6 +14,10 @@ class HomeController < ApplicationController
 
   end
 
+  def favourites
+    @favourite_tasks = current_user.all_favorites
+  end
+
   def dashboard
   end
 end

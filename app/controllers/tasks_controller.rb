@@ -4,9 +4,9 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy toggle_favorite ]
   before_action :current_user, only: %i[create destroy]
 
-  # GET /tasks or /tasks.json
+  # GET /tasks or /tasks.json that are not sourced and are not posted by the user
   def index
-    @tasks = Task.all
+    @tasks = Task.where.not(:user_id => current_user.id).where(:sourced => nil )
     @favorite_tasks = current_user.favorited_by_type('Task')
   end
 
@@ -80,18 +80,24 @@ class TasksController < ApplicationController
     approved_task = Task.find(application.task_id)
     approved_task.sourced = true
     application.approved = true
-    if approved_task.save
-      format.html { redirect_to approved_task, notice: "Task was successfully approved!" }
-      format.json { render :show, status: :created, location: approved_task }
-    else
-      format.html { render :new, status: :unprocessable_entity }
-      format.json { render json: approved_task.errors, status: :unprocessable_entity }
-    end
+    respond_to do |format|
+      if approved_task.save
+        format.html { redirect_to approved_task, notice: "Task was successfully approved!" }
+        format.json { render :show, status: :created, location: approved_task }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: approved_task.errors, status: :unprocessable_entity }
+      end
+  end
   end
 
   def toggle_favorite
     # @task = Task.find_by(id: params[:id])
     current_user.favorited?(@task) ? current_user.unfavorite(@task) : current_user.favorite(@task)
+  end
+
+  def favourites
+    @favourite_tasks = current_user.favorited_by_type('Task')
   end
 
   private
