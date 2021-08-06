@@ -47,6 +47,8 @@ gem "aws-sdk-s3", require: false
 gem "pundit"
 # Kaminari for definining scopes and paginating 
 gem 'kaminari'
+# Bootstrap forms for search form
+gem "bootstrap_form", "~> 4.0"
 
 
 group :development, :test do

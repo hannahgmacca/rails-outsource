@@ -14,7 +14,8 @@ class TasksController < ApplicationController
     # Filter by Category Only
     if !params[:category].blank?
       @tasks = Task.by_category(params[:category]).order_and_paginated(params[:page], @items_per_page).where.not(:user_id => current_user.id).where(sourced: [nil, false ])
-      respond_to_html_and_json(@tasks)
+    else
+      @tasks = Task.where.not(:user_id => current_user.id).where(sourced: [nil, false ])
     end
   end
 

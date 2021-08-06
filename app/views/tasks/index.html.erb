@@ -1,5 +1,11 @@
 <div class="page container">
-  <h1 class="text-white text-center m-2">Tasks near you</h1>
+  <h1 class="text-white text-center m-3">Tasks near you</h1>
+
+		<%= bootstrap_form_tag url: '/tasks', method: 'get' do |f| %>
+			<%= f.collection_select :category, Category.all, :id, :title %>
+			<%= f.submit %>
+		<% end %>
+		
 	<% @tasks.each do |task| %>
 
 		<div class="py-4">
