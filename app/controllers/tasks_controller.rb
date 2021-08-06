@@ -6,8 +6,16 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json that are not sourced and are not posted by the user
   def index
+    @items_per_page = 10
+    @categories = Category.all
     @tasks = Task.where.not(:user_id => current_user.id).where(sourced: [nil, false ])
     @favorite_tasks = current_user.favorited_by_type('Task')
+
+    # Filter by Category Only
+    if !params[:category].blank?
+      @tasks = Task.by_category(params[:category]).order_and_paginated(params[:page], @items_per_page).where.not(:user_id => current_user.id).where(sourced: [nil, false ])
+      respond_to_html_and_json(@tasks)
+    end
   end
 
   # GET /tasks/1 or /tasks/1.json

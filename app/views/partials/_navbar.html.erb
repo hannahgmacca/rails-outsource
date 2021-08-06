@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
        <%= link_to image_tag("logo.png", alt: "logo", height: "30", width: "30"), '/', class: 'navbar-brand' %>
     <%= link_to "Outsource", '#', id: "prov", class: 'navbar-brand' %>
@@ -8,14 +8,17 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <% if user_signed_in? %>
-           <li class="nav-item mx-4">
-              <%= link_to 'Dashboard', dashboard_path, class: "btn btn-primary" %></li>
-          </li>
+            <li class="nav-item mx-2">
+                <%= link_to 'Dashboard', dashboard_path, class: "btn btn-primary" %></li>
+            </li>
 
-          <li class="nav-item">
-          <%= link_to "Sign Out", destroy_user_session_path, method: "delete", form_class: "nav-link active ms-4"  %>
-          </li>
+            <li class="nav-item mx-2">
+            <%= link_to "Find a task", tasks_path, class: "btn btn-info" %>
+            </li>
 
+            <li class="nav-item">
+            <%= link_to "Sign Out", destroy_user_session_path, method: "delete", class: "nav-link active ms-4"  %>
+            </li>
           <% else %>
   
               <%= link_to "Sign In", new_user_session_path, method: "get", form_class: "nav-link active p-5" %>       
@@ -25,10 +28,10 @@
         </li>
       </ul>
   </div>
-</nav> 
+</nav> -->
 
 
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   
   <%= link_to image_tag("logo.png", alt: "logo", height: "30", width: "30"), '/', class: 'navbar-brand' %>
   <%= link_to "Outsource", '#', id: "prov", class: 'navbar-brand' %>
@@ -69,4 +72,4 @@
     <%= link_to "Sign In", new_user_session_path, method: "get", form_class: "nav-link active p-5" %>       
     <%= link_to "Sign Up", new_user_registration_path, method: "get", form_class: "nav-link active " %>
   <% end %>
-</nav> -->
+</nav>
