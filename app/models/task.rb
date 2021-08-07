@@ -17,10 +17,6 @@ class Task < ApplicationRecord
     validates :category, presence: true
 
 
-    def self.all_sort_by_date_skip_first
-        self.all_sort_by_date.limit(9)[1..-1]
-    end
-
     def self.by_category(category_id)
         where(category: category_id)
     end

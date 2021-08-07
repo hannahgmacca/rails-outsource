@@ -1,3 +1,73 @@
-<div class="favorite" data-id="<%= @task.id %>">
-  <h3><%= task.title %></h3>
+<div class="py-4">
+  <div class="card">
+
+    <div class="card-header" >
+      <td><%= task.category.title %></td>
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <%= link_to toggle_favorite_task_path(task), remote: true, method: :post do %>
+        <%= render 'tasks/like_button', task: task %>
+        <% end %>
+        <h2><%= task.title %></h2>
+      </div>
+
+    <div class="card-text">
+      <%= task.description %>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="card-text">
+          <p class="btn btn-success">
+            $<%= task.price %>
+          </p>
+        </div>
+
+        <div class="card-text">
+          <% if task.remote_work %>
+            <p class="badge badge-warning">Can be completed remotely</p>
+          <% end %>
+        </div>
+
+        <div class="comment-count">
+          <span class="tag is-rounded"><%= task.comments.count %> comments</span>
+        </div>
+
+        <div class="favourite-count">
+          <span class="tag is-rounded">
+          <% if task.favoritable_score.values.empty? %>
+            0 favourites
+          <% else %>
+            <%= task.favoritable_score.values[0] %>
+            favourites</span>
+          <%end%>
+        </div>
+        <br>
+
+        <div class="links-container">
+          <% if current_user %>
+            <% if current_user.has_applied?(task.id) %>
+                <%= link_to 'Applied', task_applications_path, class: "btn btn-primary" %>
+            <% elsif task.user == current_user || current_user.admin  %>
+                <%= link_to 'Edit', edit_task_path(task), class: "btn btn-info" %>
+                <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+            <% else %>
+                  <%= link_to 'Apply', new_task_application_path(task_id: task.id, user_id: current_user), class: "btn btn-primary" %>
+            <% end %>
+            <%= link_to 'Show', task, class: "btn btn-info" %>
+          <% end %>
+        </div>
+      </div>
+
+    <div class='col-lg-3 col-md-6 col-sm-12 mt-5'>
+      <% if task.user.picture.attached? %>
+        <%= image_tag task.user.picture, width: "100px", class:"img-thumbnail " %>
+      <% else %>
+        <%= image_tag "anonymous.png", width: "100px", class:"img-thumbnail rounded" %>
+      <% end %>
+      <p><i class="fa fa-user"></i> <%= task.user.first_name %> <%= task.user.surname %></p>
+    </div>
+	</div>
 </div>

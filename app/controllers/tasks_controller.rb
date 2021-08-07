@@ -2,16 +2,15 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :setup_form, only: [:new, :edit]
   before_action :set_task, only: %i[ show edit update destroy toggle_favorite ]
-  before_action :current_user, only: %i[create destroy]
+  before_action :current_user, only: %i[create destroy ]
 
   # GET /tasks or /tasks.json that are not sourced and are not posted by the user
   def index
     @items_per_page = 10
     @categories = Category.all
-    @tasks = Task.where.not(:user_id => current_user.id).where(sourced: [nil, false ])
     @favorite_tasks = current_user.favorited_by_type('Task')
 
-    # Filter by Category Only
+    # Filter by Category
     if !params[:category].blank?
       @tasks = Task.by_category(params[:category]).order_and_paginated(params[:page], @items_per_page).where.not(:user_id => current_user.id).where(sourced: [nil, false ])
     else
@@ -55,6 +54,7 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /tasks/1 or /tasks/1.json
   def update
+    authorize @task
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: "Task was successfully updated." }

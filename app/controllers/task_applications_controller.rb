@@ -30,6 +30,7 @@ class TaskApplicationsController < ApplicationController
   def edit
   end
 
+
   # POST /applications or /applications.json
   def create
     # Checks if this task is already applied for

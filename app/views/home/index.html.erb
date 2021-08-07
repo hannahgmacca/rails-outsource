@@ -1,6 +1,4 @@
-
 <div class="container-fluid index-slide d-flex align-items-center" style="height: 400px">
-
     <div class="index-title p-4 text-light w-10">
         <h1>Find a job.</h1>
         <h1>Or get a job done for you.</h1> 
@@ -19,20 +17,47 @@
 
     <h1 class="text-center p-4">Browse categories:</h1>
     <div class="row">
-        <div class="mx-auto">
-				 <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check"></i>
-				</button>
-				<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-list"></i>
-				</button>
-				<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-link"></i>
-				</button>
-				<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check"></i>
-				</button>
-				<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-times"></i>
-				</button>
-				<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-heart"></i>
-				</button>
-        </div>
+		<div class="mx-auto">
+			<!-- Category buttons -->
+			<%= link_to(tasks_path( category_id: 2), class: "btn btn-info btn-circle btn-xl") do %>
+				<i class="fa fa-air-freshener mt-4"></i>
+				<small><p style="font-size: 15px;">Cleaning</p></small>
+			<% end %>
+			<small><p style="font-size: 15px;">Cleaning</p></small>
+
+			<%= link_to(tasks_path( category_id: 2), class: "btn btn-info btn-circle btn-xl") do %>
+				<i class="fa fa-check mt-4"></i>
+			<% end %>
+
+			<%= link_to(tasks_path( category_id: 3), class: "btn btn-info btn-circle btn-xl") do %>
+			<i class="fa fa-check mt-4"></i>
+			<% end %>
+
+			<%= link_to(tasks_path( category_id: 3), class: "btn btn-info btn-circle btn-xl") do %>
+			<i class="fa fa-check mt-4"></i>
+			<% end %>
+
+			<%= link_to(tasks_path( category_id: 3), class: "btn btn-info btn-circle btn-xl") do %>
+			<i class="fa fa-check mt-4"></i>
+			<% end %>
+
+			<%= link_to(tasks_path( category_id: 3), class: "btn btn-info btn-circle btn-xl") do %>
+			<i class="fa fa-check mt-4"></i>
+			<% end %>
+
+			<%= link_to "Button Text", tasks_path( category_id: 1), class: 'btn btn-info btn-circle btn-xl' %>
+      <i class="fa fa-check"></i>
+			<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-list"></i>
+			</button>
+			<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-link"></i>
+			</button>
+			<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check"></i>
+			</button>
+			<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-times"></i>
+			</button>
+			<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-heart"></i>
+			</button>
+			</div>
     </div>
     
 </div>
