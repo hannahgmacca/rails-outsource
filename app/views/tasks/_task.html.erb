@@ -31,6 +31,15 @@
           <% end %>
         </div>
 
+        <% if task.task_date %>
+          <p>
+          <strong>Task to be completed on:</strong>
+          <%= task.task_date.strftime("%d-%m-%Y") %>
+          </p>
+        <% else %>
+          <p>This task has a flexible completion date.</p></p>
+        <% end %>
+
         <div class="comment-count">
           <span class="tag is-rounded"><%= task.comments.count %> comments</span>
         </div>

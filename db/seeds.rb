@@ -6,19 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-categories = ["Cleaning", "Delivery", "Removals", "Technology", "Business & Admin", "Tutoring", "Repair", "Finance", "Home & Garden", "Design & Admin", "Organising", "Food & Cooking", "Misc"]
-cities = ["Sydney", "Melbourne", "Perth", "Adelaide", "Brisbane", "Hobart", "Canberra", "Gold Coast", "Darwin", "Geelong", "Newcastle"]
+categories = ["Cleaning", "Delivery", "Removals", "Technology",
+     "Business & Admin", "Tutoring", "Repair", "Finance", "Home & Garden",
+    "Design & Admin", "Organising", "Food & Cooking", "Caretaking", "Misc"]
+
 if Category.count == 0
     categories.each do |category|
         Category.create(title: category, description: "A category")
         puts "Created #{category} category"
-    end
-end
-
-if City.count == 0
-    cities.each do |city|
-        City.create(name: city)
-        puts "Created #{city} city"
     end
 end
 
@@ -30,7 +25,7 @@ if User.count == 0
        :admin => true, 
        :first_name => "Hannah", 
        :surname => "McDonald", 
-       :city_id => 1 })
+        })
        puts "Created #{admin.first_name} user"
 
    user1 = User.create!({
@@ -38,7 +33,7 @@ if User.count == 0
        :password => "password", 
        :password_confirmation => "password", 
        :admin => false,  :first_name => "Ella", 
-       :surname => "Scott", :city_id => 2  })
+       :surname => "Scott" })
    puts "Created #{user1.first_name} user"
 
    user2 = User.create!({
@@ -48,7 +43,7 @@ if User.count == 0
        :admin => false, 
        :first_name => "Stacey", 
        :surname => "Schwenk", 
-       :city_id => 3  })
+        })
    puts "Created #{user2.first_name} user"
 end
 
@@ -57,7 +52,7 @@ if Task.count == 0
         :title => "Walk my dog", 
         :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", 
         :price => 50, 
-        :category_id => 1, 
+        :category_id => 13, 
         :user_id => "1", 
         :remote_work => false })
      puts "Created #{task1.title} task"
@@ -66,7 +61,7 @@ if Task.count == 0
         :title => "Clean my kitchen", 
         :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", 
         :price => 25, 
-        :category_id => 2, 
+        :category_id => 1, 
         :user_id => "2", 
         :remote_work => false })
     puts "Created #{task2.title} task"
@@ -79,4 +74,23 @@ if Task.count == 0
         :user_id => "3", 
         :remote_work => true})
     puts "Created #{task3.title} task"
+
+    task4 = Task.create!({
+        :title => "Move my house", 
+        :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", 
+        :price => 30, 
+        :category_id => 3, 
+        :user_id => "1", 
+        :remote_work => false })
+     puts "Created #{task4.title} task"
+
+
+    task5 = Task.create!({
+        :title => "Tidy my wardrobe", 
+        :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", 
+        :price => 30, 
+        :category_id => 11, 
+        :user_id => "1", 
+        :remote_work => false })
+     puts "Created #{task5.title} task"
 end

@@ -7,7 +7,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :city
   has_many :tasks, through: :task_completes # tasks the user completed
   has_many :comments
   has_one_attached :picture 
@@ -21,13 +20,11 @@ class User < ApplicationRecord
 
   def total_completed
       count = TaskApplication.where( user_id: self.id, approved: true ).to_a.count
-      puts "#{self.first_name} has count of #{count}"
       return count
   end
 
   def total_applications_to_be_reviewed
      count = @task_applications = TaskApplication.joins(:task).where(tasks: { user_id: self.id, sourced: nil}, :approved => nil).to_a.count
-     puts "#{self.first_name} has count of #{count}"
      return count
   end
 end

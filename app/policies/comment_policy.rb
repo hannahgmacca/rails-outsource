@@ -1,4 +1,4 @@
-class TaskApplicationPolicy < ApplicationPolicy
+class CommentPolicy < ApplicationPolicy
   
     def created_by_user?
         record.user_id == user.id

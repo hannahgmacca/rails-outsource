@@ -6,21 +6,19 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json that are not sourced and are not posted by the user
   def index
-    @items_per_page = 10
     @categories = Category.all
     @favorite_tasks = current_user.favorited_by_type('Task')
 
     # Filter by Category
-    if !params[:category].blank?
-      @tasks = Task.by_category(params[:category]).order_and_paginated(params[:page], @items_per_page).where.not(:user_id => current_user.id).where(sourced: [nil, false ])
+    if !params[:category_id].blank?
+      @tasks = Task.by_category(params[:category_id]).where.not(:user_id => current_user.id).where(sourced: [nil, false ]).page params[:page]
     else
-      @tasks = Task.where.not(:user_id => current_user.id).where(sourced: [nil, false ])
+      @tasks = Task.where.not(:user_id => current_user.id).where(sourced: [nil, false ]).page params[:page]
     end
   end
 
   # GET /tasks/1 or /tasks/1.json
   def show
-    @tasks = Task.all
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @task}
@@ -100,7 +98,7 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :description, :price, :user_id, :category_id, :comment, :task_date, :sourced)
+      params.require(:task).permit(:title, :description, :price, :user_id, :category_id, :comment, :task_date, :sourced, :remote_work)
     end
 
 end

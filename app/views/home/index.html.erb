@@ -10,54 +10,57 @@
     <div class='align-self-end d-none d-md-block'>
         <%= image_tag "woman_on_phone.png", class: "d-none d-md-block", width:"600px", alt: "cartoon woman" %>
     </div>
-
 	</div>
 
-	<div class="bg-light container-fluid" style="height: 300px">
-
-    <h1 class="text-center p-4">Browse categories:</h1>
-    <div class="row">
-		<div class="mx-auto">
+<div class="bg-light w-100">
+	<h1 class="text-center p-4">Browse categories:</h1>
+	<div class="container">
+		<div class="row">
 			<!-- Category buttons -->
-			<%= link_to(tasks_path( category_id: 2), class: "btn btn-info btn-circle btn-xl") do %>
-				<i class="fa fa-air-freshener mt-4"></i>
-				<small><p style="font-size: 15px;">Cleaning</p></small>
-			<% end %>
-			<small><p style="font-size: 15px;">Cleaning</p></small>
-
-			<%= link_to(tasks_path( category_id: 2), class: "btn btn-info btn-circle btn-xl") do %>
-				<i class="fa fa-check mt-4"></i>
-			<% end %>
-
-			<%= link_to(tasks_path( category_id: 3), class: "btn btn-info btn-circle btn-xl") do %>
-			<i class="fa fa-check mt-4"></i>
-			<% end %>
-
-			<%= link_to(tasks_path( category_id: 3), class: "btn btn-info btn-circle btn-xl") do %>
-			<i class="fa fa-check mt-4"></i>
-			<% end %>
-
-			<%= link_to(tasks_path( category_id: 3), class: "btn btn-info btn-circle btn-xl") do %>
-			<i class="fa fa-check mt-4"></i>
-			<% end %>
-
-			<%= link_to(tasks_path( category_id: 3), class: "btn btn-info btn-circle btn-xl") do %>
-			<i class="fa fa-check mt-4"></i>
-			<% end %>
-
-			<%= link_to "Button Text", tasks_path( category_id: 1), class: 'btn btn-info btn-circle btn-xl' %>
-      <i class="fa fa-check"></i>
-			<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-list"></i>
-			</button>
-			<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-link"></i>
-			</button>
-			<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-check"></i>
-			</button>
-			<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-times"></i>
-			</button>
-			<button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-heart"></i>
-			</button>
+			<div class="col-lg-2 col-md-2">
+				<%= link_to(tasks_path( category_id: 1), class: "btn btn-info btn-circle btn-xl") do %>
+					<i class="fa fa-air-freshener mt-4"></i>
+				<% end %>
+				<p class="text-center" style="font-size: 15px;">Cleaning</p>
 			</div>
-    </div>
-    
+
+			<div class="col-lg-2 col-md-2">
+				<%= link_to(tasks_path( category_id: 2), class: "btn btn-info btn-circle btn-xl") do %>
+					<i class="fa fa-truck mt-4"></i>
+				<% end %>
+				<p class="text-center" style="font-size: 15px;">Delivery</p>
+			</div>
+
+			<div class="col-lg-2 col-md-2">
+				<%= link_to(tasks_path( category_id: 3), class: "btn btn-info btn-circle btn-xl") do %>
+					<i class="fa fa-boxes mt-4"></i>
+				<% end %>
+				<p class="text-center" style="font-size: 15px;">Removals</p>
+			</div>
+
+			<div class="col-lg-2 col-md-2">
+				<%= link_to(tasks_path( category_id: 2), class: "btn btn-info btn-circle btn-xl") do %>
+					<i class="fa fa-laptop mt-4"></i>
+				<% end %>
+				<p class="text-center" style="font-size: 15px;">Technology</p>
+			</div>
+
+			<div class="col-lg-2 col-md-2">
+				<%= link_to(tasks_path( category_id: 2), class: "btn btn-info btn-circle btn-xl") do %>
+					<i class="fa fa-book mt-4"></i>
+				<% end %>
+				<p class="text-center" style="font-size: 15px;">Tutoring</p>
+			</div>	
+
+			<div class="col-lg-2 col-md-2">
+				<%= link_to(tasks_path( category_id: 2), class: "btn btn-info btn-circle btn-xl") do %>
+					<i class="fa fa-book mt-4"></i>
+				<% end %>
+				<p class="text-center" style="font-size: 15px;">Tutoring</p>
+			</div>	
+				<%= link_to "More categories",tasks_path, method: :get, class: "btn btn-success btn-lg mx-auto my-4" %>
+		</div>
+		
+
+	</div>
 </div>

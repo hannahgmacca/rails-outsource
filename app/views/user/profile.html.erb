@@ -17,16 +17,17 @@
 		<div class="col-lg-8">
 			<h1><%= @user.first_name%> <%= @user.surname%></h1>
 		
-			<% if @user.about_me.nil? %>
+			<% if @user.about_me.nil? || @user.about_me == ""  %>
 				<p>This user is shy, they haven't got any information about themselves on their profile!</p>
 			<% else %>
 				<p><%= @user.about_me %></p>
 			<% end %>
 
-			<p>They have completed a total of <%= @user.total_completed.to_s %> applications</p>
-		
-			<%= link_to "Contact this user",new_task_path, method: :get, class: "btn btn-info btn-lg" %>
+			<p class="badge badge-info">They have completed a total of <%= @user.total_completed.to_s %> tasks</p>
 
+			<%= mail_to(@user.email) do %>
+          		<strong class="btn btn-success w-100">Email User</strong>
+        	<% end %>
 		</div>
 	
 	</div>

@@ -1,31 +1,27 @@
 <div class="page container mt-4">
 
-<% if @task_applications.any? %>
-<h1 class="text-white">Please review the following tasks:</h1>
-	<% @task_applications.each do |task_application| %>
-
-		<div class="">
+	<% if @task_applications.any? %>
+		<h1 class="text-white">Please review the following applications:</h1>
+		<% @task_applications.each do |task_application| %>
 			<div class="card">
-
 				<div class="card-header" >
 					<td><strong>Your task: </strong><%= task_application.task.title %></td>
 				</div>
-
-        <div class="card-body">
+				
+				<div class="card-body">
 					<div class="h2">
 						<%= task_application.user.first_name %> <%= task_application.user.surname %>
 					</div>
 					<p><%= task_application.message %></p>
 					<br>
+
 					<div class="row mx-2">
 						<%= link_to 'Approve', approved_task_path(task_application_id: task_application.id), class: "btn btn-primary mx-1" %>
 						<%= link_to 'Decline', decline_task_application_path(task_application_id: task_application.id), data: { confirm: 'Are you sure?' }, class: "btn btn-danger mx-1" %>
 					</div>
-
 				</div>
 				<br>
 			</div>
-		</div>
 		<% end %>
 	<% else %>
 
@@ -34,7 +30,7 @@
 			<div class='mx-auto'>
 				<%= image_tag "happy.png", width: "350px", alt: "Happy lady", class: "rounded mx-auto d-block"  %>
 			</div>
-		
+
 			<div class="card container p-3">
 				<h2 class="text-center">Where would you like to go?</h2>
 				<div class="row d-flex justify-content-between w-75 mx-auto">

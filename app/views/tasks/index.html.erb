@@ -1,15 +1,23 @@
 <div class="page container">
   <h1 class="text-white text-center m-3">Tasks near you</h1>
 
-		<%= bootstrap_form_tag url: '/tasks', method: 'get' do |f| %>
-			<%= f.collection_select :category, Category.all, :id, :title %>
-			<%= f.submit %>
-		<% end %>
+	<div class="my-4">
+		<%= paginate @tasks %>
+	</div>
+
+	<!-- CATEGORY FILTER --> 
+	<%= bootstrap_form_tag url: '/tasks', method: 'get' do |f| %>
+		<%= f.collection_select :category_id, Category.all, :id, :title %>
+		<%= f.submit "Filter" %>
+	<% end %>
 
 	<% @tasks.each do |task| %>
 		<div class="py-4">
 			<%= render 'task', task: task %>
 		</div>
 	<% end %>
-	<br>
+
+	<div class="mt-4">
+		<%= paginate @tasks %>
+	</div>
 </div>

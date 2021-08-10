@@ -1,9 +1,9 @@
 class UserController < ApplicationController
     
-    def create
-        params[:user][:city] = City.find(params[:user][:city_id])
-        super
-    end
+    # def create
+    #     params[:user][:city] = City.find(params[:user][:city_id])
+    #     super
+    # end
 
     def profile
         @user = User.find(params[:id])
@@ -17,6 +17,6 @@ class UserController < ApplicationController
     private
     
     def configure_sign_up_params
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :city_id, :city])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     end
 end

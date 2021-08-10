@@ -1,6 +1,6 @@
 class TaskApplicationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_task_application, only: %i[ show edit update destroy decline ]
+  before_action :set_task_application, only: %i[ show edit update destroy ]
 
   # GET /applications or /applications.json 
   # Shows only the applications that the user has posted
@@ -84,7 +84,7 @@ class TaskApplicationsController < ApplicationController
       if application.save && approved_task.save
         puts "#{application.message} was approved"
         puts "#{approved_task.title} was approved"
-        format.html { redirect_to approved_task, notice: "Task was successfully approved!" }
+        format.html { redirect_to profile_path(application.user), notice: "Task was successfully approved!" }
         format.json { render :show, status: :created, location: approved_task }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -94,6 +94,7 @@ class TaskApplicationsController < ApplicationController
   end
 
   def decline
+    @task_application = TaskApplication.find(params[:task_application_id])
     @task_application.approved = false
     if @task_application.save
       respond_to do |format|

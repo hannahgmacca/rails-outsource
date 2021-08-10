@@ -1,13 +1,12 @@
 <div class="container mt-5">
-<h1 class="text-white text-center">Your Applications</h1>
+  <h1 class="text-white text-center">Your Applications</h1>
+  <% @task_applications.each do |task_application| %>
+    <div class="card container p-4 m-4">
+      <h2><%= task_application.task.title %></h2>
 
-    <% @task_applications.each do |task_application| %>
-      <div class="card container p-4 m-4">
-        <h2><%= task_application.task.title %></h2>
-       
-       <!-- APPLICATION STATUS -->
-       <div class="w-25">
-        <!-- if neither approved or declined -->
+      <!-- APPLICATION STATUS -->
+      <div class="w-25">
+      <!-- if neither approved or declined -->
         <% if task_application.approved.nil? && task_application.task.sourced.nil? %>
           <p class="btn btn-sm btn-warning">Pending approval</p>
         <!-- if approved -->
@@ -17,25 +16,26 @@
         <% elsif !task_application.approved || (task_application.approved.nil? && !task_application.task.sourced.nil?) %>
           <p class="btn btn-sm btn-danger">Declined</p>
         <% end %>
-       </div>
-        
-        <p><strong>Your message: </strong><%= task_application.message %>
-        <br><br>
-        <i class="fa fa-user"></i> 
-        <%= task_application.task.user.first_name %> <%= task_application.task.user.surname %>
-        <br>
-        <i class="fa fa-clock"></i> 
-        Application sent <%= time_ago_in_words(task_application.created_at)%></p>
-
-        <div class="links-container">
-         <%= link_to 'View task', task_path(task_application.task), class: "btn btn-info" %>
-        <%= link_to 'Destroy', task_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-       </div>
-       <br>
-        <%= mail_to(task_application.task.user.email) do %>
-          <strong class="btn btn-success w-100">Email User</strong>
-        <% end %>
       </div>
-    <% end %>
+      
+      <p><strong>Your message: </strong><%= task_application.message %>
+      <br><br>
 
+      <i class="fa fa-user"></i> 
+      <%= task_application.task.user.first_name %> <%= task_application.task.user.surname %>
+      <br>
+      <i class="fa fa-clock"></i> 
+      Application sent <%= time_ago_in_words(task_application.created_at)%></p>
+
+      <div class="links-container">
+        <%= link_to 'View task', task_path(task_application.task), class: "btn btn-info" %>
+        <%= link_to 'Destroy', task_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      </div>
+      <br>
+
+      <%= mail_to(task_application.task.user.email) do %>
+        <strong class="btn btn-success w-100">Email User</strong>
+      <% end %>
+    </div>
+  <% end %>
 </div>

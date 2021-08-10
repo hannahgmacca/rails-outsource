@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+    paginates_per 3
     # Extend Class Sortable so that tasks can be searched
     include Sortable::InstanceMethods
     extend Sortable::ClassMethods
@@ -21,3 +22,4 @@ class Task < ApplicationRecord
         where(category: category_id)
     end
 end
+

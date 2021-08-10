@@ -43,12 +43,6 @@ ActiveRecord::Schema.define(version: 2021_08_03_053057) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "cities", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "comments", force: :cascade do |t|
     t.string "message"
     t.bigint "user_id", null: false
@@ -57,13 +51,6 @@ ActiveRecord::Schema.define(version: 2021_08_03_053057) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["task_id"], name: "index_comments_on_task_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "completed_tasks", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "task_application_id", null: false
-    t.index ["task_application_id"], name: "index_completed_tasks_on_task_application_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -81,32 +68,6 @@ ActiveRecord::Schema.define(version: 2021_08_03_053057) do
     t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
     t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor_type_and_favoritor_id"
     t.index ["scope"], name: "index_favorites_on_scope"
-  end
-
-  create_table "favourites", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.bigint "task_id", null: false
-    t.index ["task_id"], name: "index_favourites_on_task_id"
-    t.index ["user_id"], name: "index_favourites_on_user_id"
-  end
-
-  create_table "notifications", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "actor_id"
-    t.string "notify_type", null: false
-    t.string "target_type"
-    t.bigint "target_id"
-    t.string "second_target_type"
-    t.bigint "second_target_id"
-    t.string "third_target_type"
-    t.bigint "third_target_id"
-    t.datetime "read_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id", "notify_type"], name: "index_notifications_on_user_id_and_notify_type"
-    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "task_applications", force: :cascade do |t|
@@ -148,13 +109,10 @@ ActiveRecord::Schema.define(version: 2021_08_03_053057) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "surname"
-    t.bigint "city_id", null: false
     t.text "favoritor_score"
     t.text "favoritor_total"
     t.boolean "admin", default: false
-    t.integer "phone_number"
     t.string "about_me"
-    t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -162,12 +120,10 @@ ActiveRecord::Schema.define(version: 2021_08_03_053057) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
-  add_foreign_key "completed_tasks", "task_applications"
   add_foreign_key "favourites", "tasks"
   add_foreign_key "favourites", "users"
   add_foreign_key "task_applications", "tasks"
   add_foreign_key "task_applications", "users"
   add_foreign_key "tasks", "categories"
   add_foreign_key "tasks", "users"
-  add_foreign_key "users", "cities"
 end
