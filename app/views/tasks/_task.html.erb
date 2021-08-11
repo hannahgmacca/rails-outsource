@@ -1,6 +1,5 @@
 <div class="py-4">
   <div class="card">
-
     <div class="card-header" >
       <td><%= task.category.title %></td>
     </div>
@@ -8,7 +7,7 @@
     <div class="card-body">
       <div class="row">
         <%= link_to toggle_favorite_task_path(task), remote: true, method: :post do %>
-        <%= render 'tasks/like_button', task: task %>
+          <%= render 'tasks/like_button', task: task %>
         <% end %>
         <h2><%= task.title %></h2>
       </div>
@@ -56,6 +55,7 @@
         <br>
 
         <div class="links-container">
+        <!-- Display links depending on user who is logged in -->
           <% if current_user %>
             <% if current_user.has_applied?(task.id) %>
                 <%= link_to 'Applied', task_applications_path, class: "btn btn-primary" %>

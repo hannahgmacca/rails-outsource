@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
   before_action :current_user, only: %i[create destroy]
 
   def create
-    # @task = Task.find(params[:task_id])
     @comment = @task.comments.build(comment_params)
     @comment.user_id = current_user.id
     respond_to do |format|
@@ -22,9 +21,7 @@ class CommentsController < ApplicationController
     end
   end
 
-
 	def destroy
-		# @task = Task.find(params[:task_id])
 		@comment = @task.comments.find(params[:id])
 		@comment.destroy
 		redirect_to task_path(@task)

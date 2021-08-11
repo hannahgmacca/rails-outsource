@@ -4,14 +4,16 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy toggle_favorite ]
   before_action :current_user, only: %i[create destroy ]
 
-  # GET /tasks or /tasks.json that are not sourced and are not posted by the user
+  # GET /tasks or /tasks.json 
+  # Only show tasks that are not sourced and are not posted by the user
   def index
     @categories = Category.all
-    @favorite_tasks = current_user.favorited_by_type('Task')
+    # @favorite_tasks = current_user.favorited_by_type('Task')
 
     # Filter by Category
     if !params[:category_id].blank?
-      @tasks = Task.by_category(params[:category_id]).where.not(:user_id => current_user.id).where(sourced: [nil, false ]).page params[:page]
+      @tasks = Task.by_category(params[:category_id])
+      .where.not(:user_id => current_user.id).where(sourced: [nil, false ]).page params[:page]
     else
       @tasks = Task.where.not(:user_id => current_user.id).where(sourced: [nil, false ]).page params[:page]
     end
@@ -31,6 +33,7 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/1/edit
+  # If user is creator OR Admin
   def edit
     authorize @task
   end
@@ -51,6 +54,7 @@ class TasksController < ApplicationController
   end
 
   # PATCH/PUT /tasks/1 or /tasks/1.json
+  # If user is creator OR Admin
   def update
     authorize @task
     respond_to do |format|
@@ -65,6 +69,7 @@ class TasksController < ApplicationController
   end
 
   # DELETE /tasks/1 or /tasks/1.json
+  # If user is creator OR Admin
   def destroy
     authorize @task
     @task.destroy
@@ -74,14 +79,12 @@ class TasksController < ApplicationController
     end
   end
 
-  def dashboard
-  end
-
+  # Toggle favourite on / favourite off 
   def toggle_favorite
-    # @task = Task.find_by(id: params[:id])
     current_user.favorited?(@task) ? current_user.unfavorite(@task) : current_user.favorite(@task)
   end
 
+  # List tasks user has favourited
   def favourites
     @favourite_tasks = current_user.favorited_by_type('Task')
   end

@@ -1,7 +1,7 @@
 <div class="dash-body container d-flex flex-column">
 	<div class="card container p-5 mt-5">
 	<div class="row">
-
+		<!-- Display 'Admin' badge if user is admin -->
 		<div class="col-lg-9 col-md-7">
 			<h1 class="d-inline">Welcome back, <%= current_user.first_name%>!</h1>
 			<% if current_user.admin? %>
@@ -9,6 +9,7 @@
 			<% end %>
 			<hr>
 
+			<!-- Display number of applications pending review -->
 			<div class="row">
 				<%= link_to(pending_approval_path) do %>
 					<button class="btn btn-success m-1">Needs review <span class="badge badge-light">
@@ -17,19 +18,20 @@
 				<% end %>
 			</div>
 
+			<!-- Alert user they need to give more information about themselves -->
 			<% if current_user.about_me.nil? || current_user.about_me == "" %>
 				<p class="badge badge-warning">We are missing some information about you, please complete your profile:</p>
 				<br><%= link_to 'Edit profile', edit_user_registration_url, class: "btn btn-primary m-1" %>
 			<% end %>
 		</div>
 
-			<div class="col-lg-2 m-4 col-md-1 p-2">
-				<% if current_user.picture.attached? %>
-					<%= image_tag current_user.picture, width: "100px", class:"" %>
-				<% else %>
-					<%= image_tag "anonymous.png", width: "100px", class:"" %>
-					<%= link_to 'Add picture', edit_user_registration_url, class: "btn btn-primary btn-sm mx-auto mt-3" %>
-				<% end %>
+		<div class="col-lg-2 m-4 col-md-1 p-2">
+			<% if current_user.picture.attached? %>
+				<%= image_tag current_user.picture, width: "100px", class:"" %>
+			<% else %>
+				<%= image_tag "anonymous.png", width: "100px", class:"" %>
+				<%= link_to 'Add picture', edit_user_registration_url, class: "btn btn-primary btn-sm mx-auto mt-3" %>
+			<% end %>
 			</div>
 		</div>
 	</div>

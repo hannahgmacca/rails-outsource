@@ -14,9 +14,4 @@ class UserController < ApplicationController
         @active_tasks = Task.where(:user_id => current_user.id, sourced: [nil, false])
     end
     
-    private
-    
-    def configure_sign_up_params
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    end
 end

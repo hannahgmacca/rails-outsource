@@ -4,10 +4,10 @@ collection.build(attributes = {}, …) Returns one or more new objects of the co
 -->
 <div class="field">
 
-<div class="field">
-  <div class="control">
-    <%= f.input :message, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }  %>
+  <div class="field">
+    <div class="control">
+      <%= f.input :message, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }  %>
+    </div>
   </div>
-</div>
 <%= f.button :submit, 'Leave a reply', class: "button btn-primary my-3" %>
 <% end %>

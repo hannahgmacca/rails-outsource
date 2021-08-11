@@ -1,16 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    
     <%= link_to image_tag("logo.png", alt: "logo", height: "30", width: "30"), '/', class: 'navbar-brand' %>
     <%= link_to "Outsource", '#', id: "prov", class: 'navbar-brand' %>
-
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <% if user_signed_in? %>
-
+    <!-- show user links if they are logged in--->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul class="navbar-nav justify-content-end bg-light">
         <li class="nav-item">
@@ -22,13 +18,13 @@
         <li class="nav-item">
           <%= link_to "", favourites_path, class: "fas fa-heart btn btn-danger m-1" %>
         </li>
-
         <li class="nav-item">
             <%= link_to "Sign Out", destroy_user_session_path, method: "delete", class: "nav-link active ms-4"  %>
         </li>
       </ul>
     </div>
     <% else %>
+    <!-- show user sign in/sign up if they are logged out --->
       <div class="collapse navbar-collapse justify-content-end">
       <%= link_to "Sign In", new_user_session_path, method: "get", class: "nav-link active" %>       
       <%= link_to "Sign Up", new_user_registration_path, method: "get", class: "nav-link active" %>

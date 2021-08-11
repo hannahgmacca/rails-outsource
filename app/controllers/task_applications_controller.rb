@@ -36,7 +36,7 @@ class TaskApplicationsController < ApplicationController
     # Checks if this task is already applied for
     @task_application = TaskApplication.find_by_user_id_and_task_id(params[:task_application][:user_id], params[:task_application][:task_id])
     if !@task_application.nil?
-      redirect_to @task_application, alert: "You've already applied for this job."
+      redirect_to @task_application, alert: "You've already applied for this task."
     else
       @task_application = TaskApplication.new(task_application_params)
       respond_to do |format|
@@ -82,8 +82,6 @@ class TaskApplicationsController < ApplicationController
     application.approved = true
     respond_to do |format|
       if application.save && approved_task.save
-        puts "#{application.message} was approved"
-        puts "#{approved_task.title} was approved"
         format.html { redirect_to profile_path(application.user), notice: "Task was successfully approved!" }
         format.json { render :show, status: :created, location: approved_task }
       else
