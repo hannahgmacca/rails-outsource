@@ -24,6 +24,7 @@ Please find live version of this app [here](https://outsource-rails.herokuapp.co
 
 5. Load [http://localhost:3000/](http://localhost:3000/) in the browser.
 
+
 ### Seeded Data
 
 There are three user accounts and a few tasks seeded for demonstration/testing purposes.
@@ -92,7 +93,7 @@ Outsource uses authorisation to ensure that each user is able to edit and delete
 1. Displaying links/buttons relative to the users privileges. Only an admin or the task, comment or application poster will see the edit and delete buttons when viewing that record.
 2. Display error message if a user requests a record or action they are not authorised to complete. i.e if a user who did not create task1 tries to edit via the task/1/edit URL then they are redirected to the index page and given an alert.
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-07_at_2.59.26_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-07_at_2.59.26_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-07_at_2.59.26_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-07_at_2.59.26_pm.png)
 
 ## Admins
 
@@ -100,7 +101,7 @@ Admin accounts are allowed to perform modifications on all tasks, comments and t
 
 An admin will be alerted of their status via the Admin badge on the dashboard.
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled.png](app/assets/images/screenshots/Untitled.png)
 
 # Dashboard
 
@@ -108,7 +109,7 @@ Users can find different parts of Outsource easily via the Dashboard.
 
 This will be their main point of contact as it is where they can find all of the website links.
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%201.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%201.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%201.png](app/assets/images/screenshots/Untitled%201.png)
 
 ## Finish profile alert
 
@@ -140,19 +141,19 @@ By visiting the 'Find Tasks' link from the navbar, users can see a list of tasks
 
 A user may filter the selection of tasks on this page from the dropdown menu at the top of the 'Find tasks' page.
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%202.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%202.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%202.png](app/assets/images/screenshots/Untitled%202.png)
 
 ### Task Pagination
 
 The 'Find tasks' page is paginated so there is a maximum of 3 tasks per page, the user can navigated these pages using the yellow page linkbar at the top and bottom of this page.
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%203.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%203.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%203.png](app/assets/images/screenshots/Untitled%203.png)
 
 ### Finding tasks they posted
 
 From the dashboard, a user can quickly view, edit or delete their active tasks.  
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%204.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%204.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%204.png](app/assets/images/screenshots/Untitled%204.png)
 
 ## Favourite
 
@@ -170,7 +171,7 @@ The ensures that frequently asked questions can be posted for all other users to
 
 A comment can be deleted by the comment poster and an admin.
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-07_at_2.13.53_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-07_at_2.13.53_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-07_at_2.13.53_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-07_at_2.13.53_pm.png)
 
 # Applications
 
@@ -182,7 +183,7 @@ Users who have interest in a task can choose to send an application. This applic
 
 When user is viewing tasks the 'Apply' button will instead show 'Applied', and if they attempt to reapply through entering in a URL that takes them to the apply page again they will be shown an error message. 
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%205.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%205.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%205.png](app/assets/images/screenshots/Untitled%205.png)
 
 ## View applications sent
 
@@ -190,7 +191,7 @@ Users may view a list of applications they have sent via the 'Applications' link
 
 Each application will show a status of Pending Approval, Approved or Declined.
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-07_at_1.48.39_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-07_at_1.48.39_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-07_at_1.48.39_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-07_at_1.48.39_pm.png)
 
 ## Contact Task poster
 
@@ -202,7 +203,7 @@ Task posters can view applications from other users that wish to complete the ta
 
 The user will be able to see if they have any applications sent to them that are pending review as there is a badge count on the button. 
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%206.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%206.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%206.png](app/assets/images/screenshots/Untitled%206.png)
 
 ### Approve
 
@@ -216,49 +217,49 @@ By selecting the red 'decline' button, an application is set to declined . The a
 
 # Sitemap
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%207.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%207.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%207.png](app/assets/images/screenshots/Untitled%207.png)
 
 # Screenshots
 
 ## Sign up
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%208.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%208.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%208.png](app/assets/images/screenshots/Untitled%208.png)
 
 ## Login
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%209.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%209.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%209.png](app/assets/images/screenshots/Untitled%209.png)
 
 ## Index
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2010.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2010.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2010.png](app/assets/images/screenshots/Untitled%2010.png)
 
 ## Dashboard
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_7.26.37_am.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_7.26.37_am.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_7.26.37_am.png](app/assets/images/screenshots/Screen_Shot_2021-08-11_at_7.26.37_am.png)
 
 ## New task
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_7.27.27_am.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_7.27.27_am.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_7.27.27_am.png](app/assets/images/screenshots/Screen_Shot_2021-08-11_at_7.27.27_am.png)
 
 ## Create task application
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2011.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2011.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2011.png](app/assets/images/screenshots/Untitled%2011.png)
 
 ## View task
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2012.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2012.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2012.png](app/assets/images/screenshots/Untitled%2012.png)
 
 ## View Applications
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2013.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2013.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2013.png](app/assets/images/screenshots/Untitled%2013.png)
 
 ## View Favourited tasks
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_7.34.39_am.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_7.34.39_am.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_7.34.39_am.png](app/assets/images/screenshots/Screen_Shot_2021-08-11_at_7.34.39_am.png)
 
 ## Edit user profile
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2014.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2014.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2014.png](app/assets/images/screenshots/Untitled%2014.png)
 
 # Target Audience
 
@@ -368,25 +369,25 @@ Link to the full page of wireframes:
 
 [https://www.figma.com/file/23lexNNdO8xW3zmtwtaxod/Lo-fi-Wireframe-Kit-Community?node-id=11%3A2018](https://www.figma.com/file/23lexNNdO8xW3zmtwtaxod/Lo-fi-Wireframe-Kit-Community?node-id=11%3A2018)
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.04.56_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.04.56_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.04.56_pm.png](app/assets/images/screenshots//Screen_Shot_2021-08-09_at_4.04.56_pm.png)
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.10_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.10_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.10_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-09_at_4.05.10_pm.png)
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.31_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.31_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.31_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-09_at_4.05.31_pm.png)
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.44_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.44_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.44_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-09_at_4.05.44_pm.png)
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.54_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.54_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.05.54_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-09_at_4.05.54_pm.png)
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.06.40_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.06.40_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.06.40_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-09_at_4.06.40_pm.png)
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.04_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.04_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.04_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-09_at_4.07.04_pm.png)
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.19_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.19_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.19_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-09_at_4.07.19_pm.png)
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.35_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.35_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.35_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-09_at_4.07.35_pm.png)
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.47_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.47_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-09_at_4.07.47_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-09_at_4.07.47_pm.png)
 
 ## Entity Relationship Design
 
@@ -402,11 +403,11 @@ Both **City** and **Skill** were also not used in the final design. User skill d
 
 **Initial ERD**
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-10_at_3.58.09_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-10_at_3.58.09_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-10_at_3.58.09_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-10_at_3.58.09_pm.png)
 
 **Final ERD**
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2015.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2015.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2015.png](app/assets/images/screenshots/Untitled%2015.png)
 
 # Model View Controller
 
@@ -430,7 +431,7 @@ Below are a few examples of the MVC components interacting with each other:
 
 For example, the tasks view can only list available tasks to the user because of the logic in the TaskController querying data using the data structure from the TaskModel. 
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_3.08.25_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_3.08.25_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_3.08.25_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-11_at_3.08.25_pm.png)
 
 Here we see the TaskController index method checking if a user has filtered the task search to show by category. 
 
@@ -441,7 +442,7 @@ If they haven't, then the controller sends an array of tasks to the "/tasks" (AK
 
 If the user has filtered the task search, then it completes the above query but also only pulls tasks that have the same category as the one the user is looking for. Both of these arrays use the Kaminari gem to paginate them in the view and show only 3 tasks per page (hence the .page)
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_3.24.39_pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_3.24.39_pm.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-11_at_3.24.39_pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-11_at_3.24.39_pm.png)
 
 Another example of the Task Controller logic is the destroy method called when a user attempts to delete a task. Task policies define that a user can only delete or modify a task if they are an admin or they posted it. The TaskController uses this policy to check this before they task is deleted, ensuring user authorisation is implemented. 
 
@@ -451,7 +452,7 @@ The controller uses the data structure from the model to ask the database, did t
 
 The view is responsible for defining what the user will see and how they will see it. It is the interface that will allow them to interact with Outsource. For example, the users can only see tasks posted on the '/tasks page because of the instructions in the views/index page telling the browser to how show them to the user.
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2016.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2016.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2016.png](app/assets/images/screenshots/Untitled%2016.png)
 
 We can see here that the views is taking the array of @tasks from the controller#index based off the logic discussed before. The views doesn't have to worry if the user is filtering the search, it can just be handed the output data and will produce the result for the user. 
 
@@ -579,7 +580,7 @@ Because a user can post many tasks but a task can only be posted by one user, th
 
 The ERD displays this relationship through the **1-*** symbols.
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2017.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2017.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Untitled%2017.png](app/assets/images/screenshots/Untitled%2017.png)
 
 ### User & Comment
 
@@ -587,7 +588,7 @@ Because a user can post many comments, but a comment can only belong to one user
 
 The ERD displays this relationship through the ***-1** symbols.
 
-![Screen Shot 2021-08-12 at 2.40.35 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_2.40.35_pm.png)
+![Screen Shot 2021-08-12 at 2.40.35 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_2.40.35_pm.png)
 
 ### Comment & Task
 
@@ -595,7 +596,7 @@ Because a comment can only belong to one task, but a task can have many comments
 
 The ERD displays this relationship through the **1-*** symbols.
 
-![Screen Shot 2021-08-12 at 2.40.04 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_2.40.04_pm.png)
+![Screen Shot 2021-08-12 at 2.40.04 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_2.40.04_pm.png)
 
 ### User (task completer) & Task Application
 
@@ -603,7 +604,7 @@ Because a user can submit many applications, but an application can only be sent
 
 The ERD displays this relationship through the **1-*** symbols.
 
-![Screen Shot 2021-08-12 at 2.41.22 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_2.41.22_pm.png)
+![Screen Shot 2021-08-12 at 2.41.22 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_2.41.22_pm.png)
 
 ### Task & Task Application
 
@@ -611,7 +612,7 @@ Because a task can have many applications for it but each application can only b
 
 The ERD displays this relationship through the **1-*** symbols.
 
-![Screen Shot 2021-08-12 at 2.41.58 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_2.41.58_pm.png)
+![Screen Shot 2021-08-12 at 2.41.58 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_2.41.58_pm.png)
 
 ### User & Favourite
 
@@ -619,7 +620,7 @@ Because a user can have multiple favorite tasks, but each favourite can only be 
 
 The ERD displays this relationship through the **1-*** symbols.
 
-![Screen Shot 2021-08-12 at 2.51.02 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_2.51.02_pm.png)
+![Screen Shot 2021-08-12 at 2.51.02 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_2.51.02_pm.png)
 
 ### User & Picture
 
@@ -627,7 +628,7 @@ Because a user can have only one picture attached and that picture is only attac
 
 The ERD displays this relationship through the **1-1** symbols.
 
-![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_5.36.09_am.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_5.36.09_am.png)
+![Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_5.36.09_am.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_5.36.09_am.png)
 
  
 
@@ -637,7 +638,7 @@ Because a task can only belong to one category, but a category can have multiple
 
 The ERD displays this relationship through the ***-1** symbols.
 
-![Screen Shot 2021-08-12 at 2.52.28 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_2.52.28_pm.png)
+![Screen Shot 2021-08-12 at 2.52.28 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_2.52.28_pm.png)
 
 ## Database Schema Design
 
@@ -787,40 +788,40 @@ For example:
 
 As a task poster, I want to be able to easily post a new task and include important details such as description, completion date, category, and payment details. This is so that I can share the details about exactly what I want to be done and therefore find the right person to complete it.
 
-![Screen Shot 2021-08-12 at 4.05.05 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_4.05.05_pm.png)
+![Screen Shot 2021-08-12 at 4.05.05 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_4.05.05_pm.png)
 
 Based on the use cases that exist in the user story Ella, I was able to document and prioritise this function as this was an important user story.
 
 Another example of task management lead by user stories:
 
-### Milo
+### Jennifer
 
-As a task completer, I want to be able to publicly comment on tasks so that I can interact with the poster and ask questions about the job. This will make tasking seeking simpler as another user may have already asked a similar question.
+As a task completer, I want to be easily able to favourite tasks and view them later. This is so that I can keep track of tasks that I am interested in without applying for them straight away.
 
-![Screen Shot 2021-08-12 at 4.07.12 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_4.07.12_pm.png)
+![Screen Shot 2021-08-12 at 4.07.12 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_4.07.12_pm.png)
 
-These functions were completed, and based on importance were given due dates and importance labels.
+Once functions were completed, they were labeled and given due dates based on importance.
 
-![Screen Shot 2021-08-12 at 4.07.01 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_4.07.01_pm.png)
+![Screen Shot 2021-08-12 at 4.07.12 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_4.07.01_pm.png)
 
-The functions allowed me to then identify what models would be needed, and I developed my ERD. From my ERD I was able to break up the application into models, so I wanted to organise the setup of my models and their associations.
+The functions allowed me to then identify what models would be needed and I developed my ERD. From my ERD I was able to break up the application into models, so I wanted to organise the setup of my models and their associations.
 
-![Screen Shot 2021-08-12 at 4.11.10 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_4.11.10_pm.png)
+![Screen Shot 2021-08-12 at 4.11.10 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_4.11.10_pm.png)
 
 ### Design
 
 Because I am very front-end design orientated, it was critical for me to set deadlines for the wireframes so I knew what I needed to be done. This allowed me to limit myself in time spent making design choices so I wouldn't get carried away.
 
-![Screen Shot 2021-08-12 at 4.14.47 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_4.14.47_pm.png)
+![Screen Shot 2021-08-12 at 4.14.47 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_4.14.47_pm.png)
 
 I also documented any functions that seemed very low priority through additional features. These were almost there as a reminder of what else Outsource could become.
 
  
 
-![Screen Shot 2021-08-12 at 4.18.41 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_4.18.41_pm.png)
+![Screen Shot 2021-08-12 at 4.18.41 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_4.18.41_pm.png)
 
 ### Backlog
 
 Finally, development revealed many ongoing tasks that needed to be documented so I could come back to them and complete them. These were often small changes to do with layout or something very important but didn't quite belong to a feature. 
 
-![Screen Shot 2021-08-12 at 4.20.27 pm.png](Outsource%209d9cd7895ab64a15982f8e60ec85b372/Screen_Shot_2021-08-12_at_4.20.27_pm.png)
+![Screen Shot 2021-08-12 at 4.20.27 pm.png](app/assets/images/screenshots/Screen_Shot_2021-08-12_at_4.20.27_pm.png)
