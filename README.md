@@ -6,7 +6,7 @@ Please find live version of this app [here](https://outsource-rails.herokuapp.co
 
 1. Clone this repo.
 
-     `> git clone git@github.com:hannahgmacca/outsource.git` 
+     `> git clone git@github.com:hannahgmacca/outsource.git`
 
 2. Run Bundle install to install all gems.
 
@@ -14,9 +14,9 @@ Please find live version of this app [here](https://outsource-rails.herokuapp.co
 
 3. Rake db:setup to create local database migrate and seed.
 
-    `> rails db:setup 
-     > rails db:migrate 
-     > rails db:seed`
+    `> rails db:setup`
+    `> rails db:migrate`
+    `> rails db:seed`
 
 4. Run the rails server.
 
