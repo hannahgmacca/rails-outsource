@@ -5,11 +5,10 @@ class TasksController < ApplicationController
   before_action :current_user, only: %i[create destroy ]
 
   # GET /tasks or /tasks.json 
-  # Only show tasks that are not sourced and are not posted by the user
   def index
     @categories = Category.all
-    # @favorite_tasks = current_user.favorited_by_type('Task')
 
+    # Only show tasks that are not sourced and are not posted by the user
     # Filter by Category
     if !params[:category_id].blank?
       @tasks = Task.by_category(params[:category_id])

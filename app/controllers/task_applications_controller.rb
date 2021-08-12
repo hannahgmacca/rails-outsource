@@ -3,8 +3,8 @@ class TaskApplicationsController < ApplicationController
   before_action :set_task_application, only: %i[ show edit update destroy ]
 
   # GET /applications or /applications.json 
-  # Shows only the applications that the user has posted
   def index
+     # Applications that the  current user has posted
     @task_applications = TaskApplication.where(:user_id => current_user.id )
   end
 
@@ -22,6 +22,7 @@ class TaskApplicationsController < ApplicationController
 
   # GET /applications/new
   def new
+    # new task with task ID from task being applied to
     @task_application = TaskApplication.new
     @task = Task.find(params[:task_id])
   end
@@ -78,7 +79,9 @@ class TaskApplicationsController < ApplicationController
     # find task that is being approved
     application = TaskApplication.find(params[:task_application_id])
     approved_task = Task.find(application.task.id)
+    # set task to sourced
     approved_task.sourced = true
+    # set application to approved
     application.approved = true
     respond_to do |format|
       if application.save && approved_task.save
